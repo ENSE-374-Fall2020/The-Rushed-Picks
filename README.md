@@ -9,7 +9,14 @@ Created with Node.js and MongoDB
 * [VLOG#1](https://youtu.be/SPS7kH5GjHU)
 * [VLOG#2](https://youtu.be/uZ3pKJFiKTA)
 
+## Project Boards
+* [User Stories](https://github.com/orgs/ENSE374-The-Rushed-Picks/projects/2)
+* [MVP](https://github.com/orgs/ENSE374-The-Rushed-Picks/projects/3)
+
 ## Getting Started
 * [Download](#)
 * [Install](#)
 * [Setup](#)
+
+## Documentation
+* [Project Documents](https://github.com/ENSE374-The-Rushed-Picks/CommunityCookbook/tree/main/documentation)
