@@ -7,6 +7,7 @@ Created with Node.js and MongoDB
 
 ## VLOGS
 * [VLOG#1](https://youtu.be/SPS7kH5GjHU)
+* [VLOG#2](https://youtu.be/uZ3pKJFiKTA)
 
 ## Getting Started
 * [Download](#)
