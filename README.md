@@ -21,3 +21,8 @@ Created with Node.js and MongoDB
 
 ## Documentation
 * [Project Documents](https://github.com/ENSE374-The-Rushed-Picks/CommunityCookbook/tree/main/documentation)
+
+## Links to Project tools
+* [DrawIO](https://app.diagrams.net/)
+* [Google Drive](drive.google.com)
+* [NodeJS](https://nodejs.org/en/)
