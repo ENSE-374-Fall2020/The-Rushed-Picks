@@ -14,3 +14,11 @@ app.use(bodyParser.urlencoded({
 }));
 
 const registerKey = "123456"; // secure!
+
+app.get("/", function (req, res) {
+    res.render("index", { test: "CommunityCookbookTemplate" });
+});
+
+app.listen(3000, function () {
+    console.log("Server started on port 3000");
+})
