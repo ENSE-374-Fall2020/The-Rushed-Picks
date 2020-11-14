@@ -19,6 +19,18 @@ app.get("/", function (req, res) {
     res.render("index", { test: "CommunityCookbookTemplate" });
 });
 
+
+app.get('/edit/:bookId/', function (req, res){
+
+    const myCookbook = {
+        bookID: 123,
+        name: "TempBook",
+        categories: ['a','b','c']
+    };  //database.getBookByID(req.params.bookId)
+    res.render("editCookbook", myCookbook)  //res.params.bookId
+})
+
+
 app.listen(3000, function () {
     console.log("Server started on port 3000");
 })
