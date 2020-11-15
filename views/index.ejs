@@ -1,26 +1,26 @@
 <%-include('partials/header', {title: "Community Cookbook"}); -%>
 
-<div class="row">
-    <div class="col-sm">
-        My CookBooks
+    <div class="row">
+        <div class="col-sm">
+            My CookBooks
+        </div>
+        <div class="col-md cookbook-search-wrapper">
+            Search <button class="btn"><i class="fa fa-bars"></i></button>
+        </div>
+
     </div>
-    <div class="col-md cookbook-search-wrapper">
-        Search <button class="btn"><i class="fa fa-bars"></i></button>
+    <div class="row">
+        <div class="col-md">
+            <div><button class="btn">Book 1</button><a class="btn" id="edit" href="/edit/123/"><i class="fa fa-edit"></i></a></div>
+            <div><a class="btn" id="addBook" href="/addBook"><i class="fa fa-plus"></i></a></div>
+        </div>
+        <div class="col-md">
+            <div><a class="btn" id="addRecipe" href="/addRecipe">Add Recipes</a></div>
+            <div>Favorites</div>
+            <div><button class="btn">Favorites</button></div>
+            <div><button class="btn">Favorites</button></div>
+            <div><button class="btn">Favorites</button></div>
+            <div><button class="btn">Favorites</button></div>
+        </div>
     </div>
-    
-</div>
-<div class="row"> 
-    <div class="col-md">
-        <div><button class="btn">Book 1</button><a class="btn" id="edit" href="/edit/123/"><i class="fa fa-edit"></i></a></div>
-        <div><button class="btn"><i class="fa fa-plus"></i></button></div>
-    </div>
-    <div class="col-md">
-        <div><button class="btn">Add Recipes</button></div>
-        <div>Favorites</div>
-        <div><button class="btn">Favorites</button></div>
-        <div><button class="btn">Favorites</button></div>
-        <div><button class="btn">Favorites</button></div>
-        <div><button class="btn">Favorites</button></div>
-    </div>     
-</div>
-<%-include('partials/footer'); -%>
+    <%-include('partials/footer'); -%>
