@@ -1,0 +1,28 @@
+  .top-left {
+      float: left;
+      border: 3px solid;
+  }
+  
+  .top-right {
+      float: right;
+      border: 3px solid;
+  }
+  
+  .table {
+      margin: auto;
+  }
+  
+  .btn {
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+  }
+  
+  .ins-block {
+      border: 3px solid;
+      margin: auto;
+      text-align: center;
+  }
