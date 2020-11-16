@@ -1,0 +1,66 @@
+<%-include('partials/header', {title: "Community Cookbook"}); -%>
+      <h1>Open Recipe</h1>
+       <div class ="container">
+
+          <div class ="icon">
+              <a calss ="active" href ="#"><i class ="fa fa-home"></i></a>
+           </div>
+
+               <h2><input type = "text" id = "Com1" Value = "Community CoookBook"></h2>
+
+               <div id ="box1">
+               
+                  <div id ="left"></div>
+                     <h2>
+                        <input type="text" id="b" value = "Search Recipe">    
+                        <input type="button" id="search" value="Seach by Navigation">
+                    </h2>
+
+                  <ul>    
+                     <div class ="bar1"><li></li></div><br>
+                     <div class ="bar2"><li></li> </div><br>
+                     <div class ="bar3"><li></li></div>                            
+                  </ul>
+                   <hr>
+                   <form id = "newForm">                
+                      <input type="text" id="book1"  Value  = "SELECT RECIPE BOOK"><br><br>
+                       <input type="select" id="book2" value="Book 1"><br>
+                         <input type="select" id="book2"  Value  ="Book 2"><br>
+                          <input type="select" id="book2" value="Book 3"><br>
+                            <input type="select" id="book2"  Value  = "Book4"><br>
+                             <input type="select" id="book2" value=  "Book 5"><br><b><br>
+
+                              <input type="text" id="Cat1"  Value  = "SHOW CATEGORY"><br><br>  
+                              <input type="select" id="Cat2" value="Category 1"><br>
+                              <input type="select" id="Cat2"  Value  ="Category 2"><br>
+                            <input type="select" id="Cat2" value= "Categpru 3"><br>
+                           <input type="select" id="Cat2"  Value  = "Category 4"><br>
+                        <input type="select" id="Cat2" value=  "Category 5"><br><br>               
+                     </form>
+
+                      <input type="text" id="select1"  Value  = "SELECT RECIPE"><b><br>
+
+                    <div id = "recipe0">
+                       <input type="select" id="recipe1"  Value  ="Recipe 1"><br>
+                       <input type="select" id="recipe1" value= "Recipe 2"><br>
+                       <input type="select" id="recipe1"  Value  = "Recipe 3"><br>
+                        <input type="select" id="recipe1" value=  "Recipe 4"><br>
+                       <input type="select" id="recipe1"  Value  ="Recipe 5"><br>
+                       <input type="select" id="recipe1" value= "Recipe 6"><br>
+                       <input type="select" id="recipe1"  Value  = "Recipe 7"><br>
+                        <input type="select" id="recipe1" value=  "Recipe 8"><br><br>
+                    </div>
+                <div>
+                  <input type = "button" id = "CO2" value = "Add Favorite">
+                   <input type = "button" id = "M2" value = "Remove Favorite">
+                </div>
+                  <input type ="button" id ="button1" value = "Edit">
+                  <input type ="button" id ="button3" value = "modify">
+
+            </div>
+
+            <div id = "comments">
+                <textarea name = "Comments">Comments </textarea>
+            </div>
+      </div>   
+      <%-include('partials/footer'); -%>

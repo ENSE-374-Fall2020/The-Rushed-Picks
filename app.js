@@ -30,14 +30,26 @@ app.get('/edit/:bookId/', function(req, res) {
     res.render("editCookbook", myCookbook) //res.params.bookId
 })
 
+
+app.get('/search', (req, res) => {
+    res.render('search', {text: "this is ejs"});
+});
+
+app.get('/open', (req, res) => {
+    res.render('open', {text: "this is ejs"});
+});
+
 app.get('/addBook', function(req, res) {
     res.render("newCookbook"); //res.params.bookId
 })
+
 
 app.get('/addRecipe', function(req, res) {
     res.render("newRecipe") //res.params.bookId
 })
 
+
 app.listen(3000, function() {
     console.log("Server started on port 3000");
 })
+
