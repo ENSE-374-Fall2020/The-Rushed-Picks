@@ -15,20 +15,21 @@ app.use(bodyParser.urlencoded({
 
 const registerKey = "123456"; // secure!
 
-app.get("/", function (req, res) {
+app.get("/", function(req, res) {
     res.render("index", { test: "CommunityCookbookTemplate" });
 });
 
 
-app.get('/edit/:bookId/', function (req, res){
+app.get('/edit/:bookId/', function(req, res) {
 
     const myCookbook = {
         bookID: 123,
         name: "TempBook",
-        categories: ['a','b','c']
-    };  //database.getBookByID(req.params.bookId)
-    res.render("editCookbook", myCookbook)  //res.params.bookId
+        categories: ['a', 'b', 'c']
+    }; //database.getBookByID(req.params.bookId)
+    res.render("editCookbook", myCookbook) //res.params.bookId
 })
+
 
 app.get('/search', (req, res) => {
     res.render('search', {text: "this is ejs"});
@@ -38,10 +39,17 @@ app.get('/open', (req, res) => {
     res.render('open', {text: "this is ejs"});
 });
 
-app.listen(3000, function () {
-    console.log("Server started on port 3000");
+app.get('/addBook', function(req, res) {
+    res.render("newCookbook"); //res.params.bookId
 })
 
 
+app.get('/addRecipe', function(req, res) {
+    res.render("newRecipe") //res.params.bookId
+})
 
+
+app.listen(3000, function() {
+    console.log("Server started on port 3000");
+})
 
