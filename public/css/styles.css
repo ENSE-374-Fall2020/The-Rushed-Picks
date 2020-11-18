@@ -5,7 +5,7 @@
     margin-left: 330px;
     margin-right: 330px;
 }
-#box1{
+.box1{
     border:solid;
     height: 550px;
     margin-left: 30px;
@@ -13,7 +13,7 @@
     margin-top: 80px;
 }
 
-#Com1{
+.Com1{
     border-radius: 10px;
     border: 1px solid black;
     padding: 3px;
@@ -35,7 +35,7 @@ h1{
     font-size: 50px;
 }
 
-#b{
+.b{
     border-radius: 10px;
     padding: 5px;
     width: 100px;
@@ -43,7 +43,7 @@ h1{
     position: absolute;
     left: 400px;
 }
-#search{
+.search{
     border-radius: 10px;
     border: 1px solid black;
     padding: 10px;
@@ -64,7 +64,7 @@ h1{
     align-items: center;
 }
 
-div#left{
+div.left{
     background-color: black;
     width: 2px;
     height: 550px;
@@ -82,7 +82,7 @@ hr{
    border-width: 3px;
   color: black;
 }
-#comments{
+.comments{
     width: 130px;
     padding: 120px;
     position: absolute;
@@ -98,19 +98,19 @@ form{
    right: 67%
 }
 
-#Reci{
+.Reci{
    text-align: center;
    width: 150px;
    position: absolute;
    left: 33px;
    text-align: center;
 }
-#Cat{
+.Cat{
    height: 30px;
    text-align: center; 
 }
 
-#CO1{
+.CO1{
     border-radius: 10px;
     border: 1px solid black;
     padding: 12px;
@@ -120,7 +120,7 @@ form{
     left: 270px;
   bottom: 55%;
 }
-#M{
+.M{
  border-radius: 10px;
     border: 1px solid black;
     padding: 12px;
@@ -130,12 +130,12 @@ form{
     left: 465px;
   bottom: 55%;
 }
-#head{
+.head{
    position: absolute;
    left: 350px;
    top: 35px;
 }
-#box2{
+.box2{
    border-radius: 10px;
    border: 1px solid black;
    padding:10px;
@@ -144,12 +144,12 @@ form{
    left: 270px;
    top: 80px;
 }
-#head1{
+.head1{
    position: absolute;
    left: 350px;
    top: 180px;
 }
-#box3{
+.box3{
    border-radius: 10px;
    border: 1px solid black;
    padding:10px;
@@ -158,7 +158,7 @@ form{
    left: 270px;
    top: 240px;
 }
-#button1{
+.button1{
    border-radius: 10px;
    width: 80px;
    height: 40px;
@@ -167,7 +167,7 @@ form{
    left: 280px;
    top: 380px;
 }
-#button2{
+.button2{
    border-radius: 10px;
    width: 80px;
    height: 40px;
@@ -176,17 +176,17 @@ form{
    left: 400px;
    top: 380px;
 }
-#Cat1{
+.Cat1{
    border-radius: 5px;
    height: 30px;
    text-align: center;
 }
-#book1{
+.book1{
    border-radius: 5px;
     height: 30px;
     text-align: center;
 }
-#select1{
+.select1{
    border-radius: 5px;
     height: 30px;
     width: 200px;
@@ -195,7 +195,7 @@ form{
     left: 270px;
    top: 60px;
 }
-#CO2{
+.CO2{
     border-radius: 10px;
     border: 1px solid black;
     padding: 12px;
@@ -205,7 +205,7 @@ form{
     left: 270px;
   bottom: 55%;
 }
-#M2{
+.M2{
  border-radius: 10px;
     border: 1px solid black;
     padding: 12px;
@@ -215,7 +215,7 @@ form{
     left: 465px;
   bottom: 55%;
 }
-#button3{
+.button3{
    border-radius: 10px;
     width: 80px;
      height: 40px;
@@ -224,7 +224,7 @@ form{
     left: 400px;
 top: 380px;
 }
-#book2{
+.book2{
     border-radius: 5px;
       text-align: center;
       width: 150px;
@@ -232,7 +232,7 @@ top: 380px;
       left: 33px;
      text-align: center;
 }
-#Cat2{
+.Cat2{
     border-radius: 5px;
      text-align: center;
      width: 150px;
@@ -240,7 +240,7 @@ top: 380px;
      left: 33px;
      text-align: center;
 }
-#recipe1{
+.recipe1{
      border-radius: 5px;
       text-align: center;
       width: 150px;
@@ -248,7 +248,7 @@ top: 380px;
       left: 280px;
       text-align: center;
 }
-#recipe0{
+.recipe0{
       position: absolute;
     top: 110px;
 }
