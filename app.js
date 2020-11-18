@@ -35,7 +35,7 @@ app.get('/search', (req, res) => {
     res.render('search', {text: "this is ejs"});
 });
 
-app.get('/open', (req, res) => {
+app.get('/openRecipe', (req, res) => {
     res.render('open', {text: "this is ejs"});
 });
 
