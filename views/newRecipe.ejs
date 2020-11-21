@@ -1,32 +1,27 @@
 <%-include('partials/header', {title: "Community Cookbook"}); -%>
 
-    <div class="top-left">
+    
+    <div class="card">
+        <h1> New Recipe </h1>
+    </div>
+    <form>
+    <div class="form-group">
+    <label for="recipeTitle"><h1>Recipe Name</h1></label>
+    <input type="text" class="form-control" id="recipeTitle" placeholder="e.g. Pancakes, Peanutbutter cookies"/>
+    </div>
+
+    <%-include ('partials/newIngredient'); -%>
+
+
+    <div class="form-group">
+            <label for="recipeInstructions"><h2>Instructions</h2></label>
+            <textarea class="form-control" id="recipeInstructions">Type instructions here...</textarea>
+    </div>
+    
+    <div class="form-group">
         <button class="btn"> Save </button>
         <button class="btn"> Cancel </button>
     </div>
-
-    <div class="top-right">
-        <button class="btn"> View Recipes </button>
-    </div>
-
-    <div class="table">
-        <table>
-            <tr>
-                <th> Number </th>
-                <th> Unit </th>
-                <th> Ingredient </th>
-            </tr>
-        </table>
-        <button class="btn"> + </button>
-    </div>
-
-    <br>
-
-    <div class="ins-block">
-        <h2>Instructions</h2>
-        <div class="content">
-            <p>Type instructions here...</p>
-        </div>
-    </div>
+    </form>
 
     <%-include('partials/footer'); -%>

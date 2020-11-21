@@ -22,9 +22,10 @@ const bookSchema = new mongoose.Schema ({
     bookName: String,
     categories: {
         categoryName: String
-    }
-
+    },
 });
+
+const Book = mongoose.model("Book", bookSchema);
 
 const recipeSchema = new mongoose.Schema ({
     recipeName: String,
@@ -40,9 +41,7 @@ const recipeSchema = new mongoose.Schema ({
       
 });
 
-const RecipeBook = new mongoose.model("RecipeBook", bookSchema);
-
-const Recipe = new mongoose.model("Recipe", recipeSchema);
+const Recipe = mongoose.model("Recipe", recipeSchema);
 
 const port=5000;
 
@@ -74,7 +73,7 @@ app.get('/openRecipe', (req, res) => {
 
 app.get('/addBook', function(req, res) {
     res.render("newCookbook"); //res.params.bookId
-})
+});
 
 
 app.get('/addRecipe', function(req, res) {
@@ -86,9 +85,12 @@ app.post('/addRecipe'), function(req, res){
         // recipeName = req.body.recipeName,
         // ingredients = req.body.ingredients
     })
-}
+};
 
+app.post('/addBook', function(req, res){
+    var book = new Book({})
+});
 app.listen(port, function() {
     console.log("Server started on port " + port);
-})
+});
 
