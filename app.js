@@ -3,15 +3,48 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const fs = require("fs");
 const { runInNewContext } = require("vm");
+const mongoose = require("mongoose");
 
 // app.use statements
 const app = express();
-
+app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static("public"));
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({
     extended: true
 }));
+
+mongoose.connect("mongodb://localhost:27017/cookbookDB", 
+                {useNewUrlParser: true, 
+                 useUnifiedTopology: true});
+
+const bookSchema = new mongoose.Schema ({
+    bookName: String,
+    categories: {
+        categoryName: String
+    }
+
+});
+
+const recipeSchema = new mongoose.Schema ({
+    recipeName: String,
+    ingredients: {
+        quantity: Number,
+        unit: String,
+        description: String
+    },
+    instructions: String,
+    books:{type: [bookSchema],
+        default: ()=>({}),
+    }
+      
+});
+
+const RecipeBook = new mongoose.model("RecipeBook", bookSchema);
+
+const Recipe = new mongoose.model("Recipe", recipeSchema);
+
+const port=5000;
 
 const registerKey = "123456"; // secure!
 
@@ -48,8 +81,14 @@ app.get('/addRecipe', function(req, res) {
     res.render("newRecipe") //res.params.bookId
 })
 
+app.post('/addRecipe'), function(req, res){
+    var recipe = new Recipe ({
+        // recipeName = req.body.recipeName,
+        // ingredients = req.body.ingredients
+    })
+}
 
-app.listen(3000, function() {
-    console.log("Server started on port 3000");
+app.listen(port, function() {
+    console.log("Server started on port " + port);
 })
 
