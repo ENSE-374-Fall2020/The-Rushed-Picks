@@ -1,0 +1,10 @@
+[{
+    "bookName":"TempBook1",
+    "categories": [
+        {"category":"Main Dishes"},
+        {"category":"Desserts"},
+        {"category":"Drinks"},
+        {"category":"Side Dish"},
+        {"category":"Appetizers"}
+    ]    
+}]
