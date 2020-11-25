@@ -2,18 +2,31 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const fs = require("fs");
-const { runInNewContext } = require("vm");
+
+//const { runInNewContext } = require("vm");
 const mongoose = require("mongoose");
+const path = require("path");
+
+//Setting up jQuery for node.js
+var jsdom = require("jsdom");
+const { JSDOM } = jsdom;
+const { window } = new JSDOM();
+const { document } = (new JSDOM('')).window;
+global.document = document;
+
+var $ = jQuery = require('jquery')(window);
 
 // app.use statements
 const app = express();
 app.use(bodyParser.urlencoded({extended:true}));
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname,"public")));
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({
     extended: true
 }));
 
+// javascript use statements
+app.use(express.static(path.join(__dirname,'scripts')));
 mongoose.connect("mongodb://localhost:27017/cookbookDB", 
                 {useNewUrlParser: true, 
                  useUnifiedTopology: true});
