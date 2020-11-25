@@ -1,5 +1,18 @@
 <%-include('partials/header', {title: "Community Cookbook"}); -%>
 
+<div class="card">
+    <h1>Add a New Book</h1>
+</div>
+<form>
+<div class="form-group">
+<label for="recipeTitle"><h4>New Book Name</h4></label>
+<input type="text" class="form-control" id="recipeTitle" placeholder="e.g. Grandma's Secret Recipes"/>
+</div>
+<div class="input-group row">
+    <input type="text" class="" placeholder="Main Dishes"/>
+    <button class="btn" id="removeCategory">x</button>
+</div>
+<div class="row"><button class="btn" id="addCategory"> + </button></div>
     <div class="top-left">
         <button class="btn"> Save </button>
         <button class="btn"> Cancel </button>
@@ -8,5 +21,5 @@
     <div class="top-right">
         <button class="btn"> View Cookbooks </button>
     </div>
-
+</form>
     <%-include('partials/footer'); -%>

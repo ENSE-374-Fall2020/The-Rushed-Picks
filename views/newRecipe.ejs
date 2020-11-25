@@ -2,16 +2,23 @@
 
     
     <div class="card">
-        <h1> New Recipe </h1>
+        <h1>Add a New Recipe </h1>
     </div>
     <form>
     <div class="form-group">
-    <label for="recipeTitle"><h1>Recipe Name</h1></label>
+    <label for="recipeTitle"><h4>Recipe Name</h4></label>
     <input type="text" class="form-control" id="recipeTitle" placeholder="e.g. Pancakes, Peanutbutter cookies"/>
     </div>
 
-    <%-include ('partials/newIngredient'); -%>
+    <!-- <%-include ('partials/newIngredient'); -%> -->
 
+    <div class="input-group row">
+        <input type="text" class="" placeholder="1"/><input type="text" class="" placeholder="unit"/>
+        <input type="text" class="" placeholder="ingredient"/>
+        <button class="btn" id="removeIngredient">x</button>
+    </div>
+    <div class="row" id="newIngredient"></div>
+    <div class="row"><button class="btn" id="addIngredient"> + </button></div>
 
     <div class="form-group">
             <label for="recipeInstructions"><h2>Instructions</h2></label>
@@ -23,5 +30,5 @@
         <button class="btn"> Cancel </button>
     </div>
     </form>
-
+    <!-- <script type="text/javascript" src="helper.js"></script> -->
     <%-include('partials/footer'); -%>
