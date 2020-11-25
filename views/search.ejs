@@ -1,69 +1,110 @@
 <%-include('partials/header', {title: "Community Cookbook"}); -%>
-      <h1>Open Recipe</h1>
-       <div class ="container">
+        <h1>Open Recipe/Search Recipe</h1>
+      <div class ="container">                    
+                    <nav class ="navbar navbar-expand-md navbar-dark bg-info">
+                       <a class ="navbar-brand" href ="#">CommunityCookBook</a>
+                       <button class ="navbar-toggler" type ="button" data-toggle ="collapse"
+                           data-target ="#navbarSupportedContent">
+                           <span class ="navbar-toggler-ion"></span>
+                        </button>
 
-               <h2><input type = "text" id = "Com1" Value = "Community CookBook"></h2>
+                        <div class ="collapse navbar-collapse" id =" navbarSupportedContent">
+                           <div class ="navbar-nav mx-auto">
+                               <div class="dropdown">
+                                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                   Recipes
+                                 </button>
+                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                   <a class="dropdown-item" href="#">Recipe 1</a>
+                                   <a class="dropdown-item" href="#">Recipe 2</a>
+                                   <a class="dropdown-item" href="#">Recipe 3</a>
+                                   <a class="dropdown-item" href="#">Recipe 4</a>
+                                   <a class="dropdown-item" href="#">Recipe 5</a>
+                                 </div>
+                               </div>
+                               <div class="dropdown">
+                                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                   Categories
+                                 </button>
+                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                   <a class="dropdown-item" href="#">Category 1</a>
+                                   <a class="dropdown-item" href="#">Category 2</a>
+                                   <a class="dropdown-item" href="#">Category 3</a>
+                                   <a class="dropdown-item" href="#">Category 4</a>
+                                   <a class="dropdown-item" href="#">Category 5</a>
+                                 </div>
+                               </div>
 
-               <div class ="box1">
-               
-                  <div class ="left"></div>
-                     <h2>
-                        <input type="text" class="b" value = "Search Recipe">    
-                        <input type="button" class="search" value="Seach by Navigation">
-                    </h2>
+                               <div class="dropdown">
+                                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                   Books
+                                 </button>
+                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                   <a class="dropdown-item" href="#">book 1</a>
+                                   <a class="dropdown-item" href="#">book 2</a>
+                                   <a class="dropdown-item" href="#">book 3</a>
+                                   <a class="dropdown-item" href="#">book 4</a>
+                                   <a class="dropdown-item" href="#">book 5</a>
+                                 </div>
+                               </div>
+                              <div class="dropdown">
+                                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                   Favorites
+                                 </button>
+                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                   <a class="dropdown-item" href="#">favorite1</a>
+                                   <a class="dropdown-item" href="#">favorite 2</a>
+                                   <a class="dropdown-item" href="#">favorite 3</a>
+                                   <a class="dropdown-item" href="#">favorite 4</a>
+                                   <a class="dropdown-item" href="#">favorite 5</a>
+                                 </div>
+                               </div>
+                           </div>
+                           <form class ="form-inline">
+                              <input class ="form-control mr-sm-2" type ="search"
+                              placeholder ="search" aria-label ="Search">
+                              <button class ="btn btn-light my-ms-o" type ="sumbit">Search</button>
+                           </form>
+                        </div>
+                    </nav>               
+                   <hr>     
 
-                  <ul>    
-                     <div class ="bar1"><li></li></div><br>
-                     <div class ="bar2"><li></li> </div><br>
-                     <div class ="bar3"><li></li></div>                            
-                  </ul>
-                   <hr>
-                   <label for ="Books">Select a Books: </label>
-                   <select name = "books" id = "books">
-                    <option value ="book1"> Book1</option>
-                     <option value ="book2"> Book2</option>
-                      <option value ="book3"> Book3</option>
-                       <option value ="book4"> Book4</option>
-                       <option value ="book5"> Book5</option>
-                       <input type = "submit" id = "submit">
-                        </select><br><br><br>
-
-                         <label for ="Category">Select a Category: </label>
-                        <select name = "Category 1" id = "Category">
-                       <option value ="Category 2"> Category 1</option>
-                      <option value ="Category 3"> Category 2</option>
-                    <option value ="Category 4"> Category 3</option>
-                   <option value ="Category 5"> Category 4</option>
-                  <option value ="Category 6"> Category 5</option>
-               <input type = "submit" id ="submit">
-              </select><br><br>
-
-              <label for ="Recipe">Select a Recipe: </label>
-               <select name = "Recipe" id = "Recipe">
-                <option value ="Recipe 1"> Recipe 1</option>
-                 <option value ="Recipe 2"> Recipe 2</option>
-                   <option value ="Recipe 3"> Reccipe 3</option>
-                    <option value ="Recipe 4"> Recipe 4</option>
-                    <option value ="Recipe 5"> Recipe 5</option>
-                     <option value ="Recipe 6"> Recipe 6</option>
-                      <option value ="Recipe 7"> Recipe 7</option>
-                       <option value ="Recipe 8"> Recipe 8</option>
-                     <input type = "submit" id = "submit">
-                </select><br><br>
-
-        
-                      
                 <div>
-                  <input type = "button" class="CO2" id = "CO2" value = "Add Favorite">
-                   <input type = "button" class="M2" id = "M2" value = "Remove Favorite">
+                    <input type = "button" class="CO2" id = "CO2" value = "Add Favorite"><br>
+                     <input type = "button" class="M2" id = "M2" value = "Remove Favorite"><br>
                 </div>
-                  <input type ="button" class="button1" id ="button1" value = "Edit">
+                  <input type ="button" class="button1" id ="button1" value = "Edit"><br>
                   <input type ="button" class="button3" id ="button3" value = "modify">
+            </div><br><br><br>
+            <br><br>
+            <div>
+                <input type = "text" id = "CO1" value = "Coconut Rice">
+                <div type = "text" id = "M" value = "More">
+         </div>
 
+              <h3 id = "head"> Ingredients</h3>
+           <div id = "box2">
+              <ul>
+                <li> 1 cup of water </li>
+                <li> 2 cups of rice </li>
+                <li> 1 can coconut milk</li>
+              <ul>
+           </div>
+                <h3 id = "head1"> Instructions</h3>
+            <div id = "box3">
+              <ol>
+                <li> step 1 </li>
+                <li> step 2 </li>
+                <li> step 3 </li>
+              <ol>
             </div>
 
-            <div class = "comments">
-                <textarea name = "Comments">Comments </textarea>
-            </div>
-      </div>   
+                   <div class = "comments">
+                       <textarea name = "Comments">Comments </textarea>
+                   </div>
+         </div>   
       <%-include('partials/footer'); -%>
