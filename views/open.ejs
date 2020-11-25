@@ -1,41 +1,103 @@
 np<%-include('partials/header', {title: "Community Cookbook"}); -%>
+<%-include('partials/header', {title: "Community Cookbook"}); -%>
 
 
       <h1>Open Recipe</h1>
        <div class ="container">
-
-          
-
     <h2><input type = "text" id = "Com1" Value = "Community CookBook"></h2>
-
     <div id ="box1">
     <div id ="left"></div>
-
       <h2>
       <input type="text" id="b" value = "BOOK 1">    
       <input type="search" id="search" value="Seach">
     </h2>
-
-    <ul>    
-          <div class ="bar1"><li></li></div><br>
-          <div class ="bar2"><li></li> </div><br>
-          <div class ="bar3"><li></li></div>                            
-    </ul>
-
     <!--This is not a form, will need to change this-->
-    
     <hr>
-        
-    <input type="button" id="Cat"  Value  = "CATEGORY 1"><br>
-    <input type="button" id="Reci" value="Recipe a"><br>
-    <input type="button" id="Reci"  Value  ="Recipe b"><br>
-    <input type="button" id="Reci" value="Recipe c"><br>
-    <input type="button" id="Reci"  Value  = "Recipe d"><br>
-     <input type="button" id="Reci" value=  "Recipe e"><br><b>
-    <input type="button" id="Cat"  Value  = "CATEGORY 2"><br>
-    <input type="button" id="Cat"  Value  = "CATEGORY 3"><br>
-    <input type="button" id="Cat"  Value  = "CATEGORY 4"><b><br><br>
-
+    <div id="accordion">
+      <div class="card">
+        <div class ="panel panel-primary">
+          <div class ="panel-heading">
+            <h5 class ="mb-3">
+              <a href ="#panelBodyOne" data-toggle ="collapse" data-parent ="#accordion">
+                Category 1
+              </a>
+            </h5>
+          </div>
+          <div id ="panelBodyOne" class ="panel-collapse collapse">
+            <div class ="panel-body">
+              <input type="button" id="Reci1" value="Recipe a"><br>
+            <input type="button" id="Reci1"  Value  ="Recipe b"><br>
+            <input type="button" id="Reci1" value = "Recipe c"><br>
+            <input type="button" id="Reci1"  Value  = "Recipe d"><br>
+             <input type="button" id="Reci1" value=  "Recipe e"><br><b>               
+            </div>
+          </div>
+        </div>
+      </div>     
+      <div class="card">
+        <div class ="panel panel-primary">
+          <div class ="panel-heading">
+            <h5 class ="mb-3">
+              <a href ="#panelBodyTwo" data-toggle ="collapse" data-parent ="#accordion">
+                Category 2
+              </a>
+            </h5>
+          </div>
+          <div id ="panelBodyTwo" class ="panel-collapse collapse">
+            <div class ="panel-body">
+              <input type="button" id="Reci2" value="Recipe a"><br>
+            <input type="button" id="Reci2"  Value  ="Recipe b"><br>
+            <input type="button" id="Reci2" value="Recipe c"><br>
+            <input type="button" id="Reci2"  Value  = "Recipe d"><br>
+             <input type="button" id="Reci2" value=  "Recipe e"><br><b>             
+            </div>
+          </div>
+        </div>
+      </div>  
+      <div class="card">
+        <div class ="panel panel-primary">
+          <div class ="panel-heading">
+            <h5 class ="mb-3">
+              <a href ="#panelBodyThree" data-toggle ="collapse" data-parent ="#accordion">
+                Category 3
+              </a>
+            </h5>
+          </div>
+          <div id ="panelBodyThree" class ="panel-collapse collapse">
+            <div class ="panel-body">
+              <input type="button" id="Reci3" value="Recipe a"><br>
+            <input type="button" id="Reci3"  Value  ="Recipe b"><br>
+            <input type="button" id="Reci3" value="Recipe c"><br>
+            <input type="button" id="Reci3"  Value  = "Recipe d"><br>
+             <input type="button" id="Reci3" value=  "Recipe e"><br><b>
+              
+            </div>
+          </div>
+        </div>
+      </div>    
+      <div class="card">
+        <div class ="panel panel-primary">
+          <div class ="panel-heading">
+            <h5 class ="mb-3">
+              <a href ="#panelBodyFour" data-toggle ="collapse" data-parent ="#accordion">
+                Category 4
+              </a>
+            </h5>
+          </div>
+          <div id ="panelBodyFour" class ="panel-collapse collapse">
+            <div class ="panel-body">
+              <input type="button" id="Reci4" value="Recipe a"><br>
+            <input type="button" id="Reci4"  Value  ="Recipe b"><br>
+            <input type="button" id="Reci4" value="Recipe c"><br>
+            <input type="button" id="Reci4"  Value  = "Recipe d"><br>
+             <input type="button" id="Reci4" value=  "Recipe e"><br><b>               
+            </div>
+          </div>
+        </div>
+      </div>     
+    </div>
+</div>
+<br><br>
     <div>
       <input type = "text" id = "CO1" value = "Coconut Rice">
         <input type = "text" id = "M" value = "More">
@@ -49,7 +111,6 @@ np<%-include('partials/header', {title: "Community Cookbook"}); -%>
           <li> 1 can coconut milk</li>
        <ul>
      </div>
-
      <h3 id = "head1"> Instructions</h3>
      <div id = "box3">
        <ol>
@@ -58,15 +119,12 @@ np<%-include('partials/header', {title: "Community Cookbook"}); -%>
           <li> step 3 </li>
      <ol>
     </div>
-
    <input type ="button" id ="button1" value = "Edit">
   <input type ="button" id ="button2" value = "Copy">
-
         </div>
           <div class = "comments">
            <textarea name = "Comments">Comments </textarea>
           </div>
-
       </div>   
       <%-include('partials/footer'); -%>
       
