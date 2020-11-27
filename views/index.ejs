@@ -1,10 +1,10 @@
-<%-include('partials/header', {title: "Community Cookbook"}); -%>
+<%-include('partials/header', {title: test}); -%>
 
 
 <div class="container-fluid w-75">
     <div class="row">
         <div class="col-sm">
-            My CookBooks
+            Categories
         </div>
         <div class="col-md cookbook-search-wrapper">
             <a type="button" class="btn btn-default" href="/search">
@@ -14,8 +14,16 @@
         </div>
 
     </div>
-    <%-include('partials/favorites'); -%>
-        
+    <div class="row">
+        <div class="col-md">
+            <div class="accordion" id="bookCategories"></div>
+            <%-include('partials/menuCategories',{category:"testCategory"}); -%>
+        </div>
+        <div class="col-md">
+        <%-include('partials/favorites'); -%>
+        </div>
     </div>
+    
+</div>
     
     <%-include('partials/footer'); -%>
