@@ -1,19 +1,20 @@
 .img-fluid {
-    width: 15%;
+    width: 50%;
     height: auto;
     margin: 0px;
     padding: 0px;
 }
 
 #title {
-    background-color: rgb(170, 238, 238);
+    background-color: rgb(65, 96, 231);
 }
 
 #community-cookbook-title {
     font-variant: small-caps;
     font-family: serif;
     padding-top: 50px;
-    text-align: center;
+    text-align: left;
+    color: white;
 }
 
 .wrapper {
@@ -23,4 +24,10 @@
 
 #sidebar-title {
     font-family: Georgia, serif;
+    font-weight: bold;
+}
+
+.text-primary {
+    font-family: sans-serif;
+    text-align: center;
 }
