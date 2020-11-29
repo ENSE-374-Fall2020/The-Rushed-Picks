@@ -1,13 +1,15 @@
 <%-include('partials/header', {title: test}); -%>
 
 
-<div class="container-fluid w-75">
+    <div class="container-fluid">
     <div class="row">
-        <div class="col-md">
+        <div class="col-2">
             <button class="btn inline"><i class="fa fa-bars"></i></button> Categories
         </div>
-        <div class="col-md">
+        <div class="col-10">
+           <div class="col-md-12 wrapper">
             <input class="form-control" name="searchBox" id="searchBox" type="text" placeholder="Search" aria-label="Search"/>
+            </div>
         </div>
 
         
@@ -20,6 +22,7 @@
         </div>
         <div class="col-md">
             <%-include('partials/favorites') -%>
+            </div>
             <!-- Insert Search Script -->
     <!-- <script type="text/javascript"
        
@@ -46,3 +49,4 @@
 </div>
     
     <%-include('partials/footer'); -%>
+

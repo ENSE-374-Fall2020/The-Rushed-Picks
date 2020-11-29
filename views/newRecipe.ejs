@@ -1,9 +1,12 @@
 <%-include('partials/header', {title: "Community Cookbook"}); -%>
 
     
-    <div class="card">
-        <h1>Add a New Recipe </h1>
+    <div class="card border-primary mb-3">
+        <h1 class="text-primary">
+            <em>Add a New Recipe</em>
+        </h1>
     </div>
+    <div class="container">
     <form method="POST" id="addNewRecipe">
     <div class="form-group">
     <label for="recipeTitle"><h4>Recipe Name</h4></label>
@@ -35,6 +38,8 @@
         <a class="btn" href="/"> Cancel </a>
     </div>
     </form>
+    
+    </div>
 
 
     <script type="text/javascript">
@@ -75,4 +80,5 @@
     
     
     </script>
+
     <%-include('partials/footer'); -%>
