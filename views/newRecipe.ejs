@@ -7,12 +7,21 @@
     <form method="POST" id="addNewRecipe">
     <div class="form-group">
     <label for="recipeTitle"><h4>Recipe Name</h4></label>
-    <input type="text" class="form-control" id="recipeTitle" placeholder="e.g. Pancakes, Peanutbutter cookies"/>
+    <input type="text" class="form-control" name="recipeTitle" placeholder="e.g. Pancakes, Peanutbutter cookies"/>
     </div>
-
-    <!-- <%-include ('partials/newIngredient'); -%> -->
-     
-    
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="selectCategory">Select Recipe Category</label>
+        </div>
+        <select class="custom-select" id="selectCategory">
+         
+        </select>
+      </div>
+    <div class="row" id="recipeTable">
+        <div class="col-md">Quantity</div>
+        <div class="col-md">Unit</div>
+        <div class="col-md">Ingredient</div>
+    </div>
     <div class="row" id="newIngredient"></div>
     <div class="row"><button type="button" class="btn" id="addIngredient"> + </button></div>
 
@@ -32,9 +41,9 @@
     $(document).on('click',"#addIngredient", function () {
     var html = '';
     html += '<div class="input-group row">';
-    html += '<input name="ingredient[][quantity]" type="text" class="" placeholder="1"/>';
-    html += '<input name="ingredient[][unit]" type="text" class="" placeholder="unit"/>';
-    html += '<input name="ingredient[][description]" type="text" class="" placeholder="ingredient"/>';
+    html += '<div class="col-md"><input name="ingredient[][quantity]" type="text" class="" placeholder="quantity"/></div>';
+    html += '<div class="col-md"><input name="ingredient[][unit]" type="text" class="" placeholder="unit"/></div>';
+    html += '<div class="col-md"><input name="ingredient[][description]" type="text" class="" placeholder="ingredient"/></div>';
     html += '<button type="button" class="btn" id="removeIngredient">x</button>';
     html += '</div>';
     

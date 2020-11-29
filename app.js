@@ -82,7 +82,6 @@ function saveRecipe(){
 function saveComment(){
 
 }
-
 //App POST and GET
 app.get("/", function(req, res) {
     res.render("index", {
@@ -92,14 +91,14 @@ app.get("/", function(req, res) {
 });
 
 
-app.get('/edit/:bookId/', function(req, res) {
+app.get('/edit/:recipeId/', function(req, res) {
 
-    const myCookbook = {
-        bookID: 123,
-        name: "TempBook",
+    const myRecipe = {
+        recipeID: 123,
+        name: "Coconut Rice",
         categories: ['a', 'b', 'c']
     }; //database.getBookByID(req.params.bookId)
-    res.render("editCookbook", myCookbook) //res.params.bookId
+    res.render("editRecipe", myRecipe) //res.params.bookId
 })
 
 
@@ -108,7 +107,7 @@ app.get('/search', (req, res) => {
 });
 
 app.get('/openRecipe', (req, res) => {
-    res.render('open', {text: "this is ejs"});
+    res.render('open', {text: "THIS IS MY VARIABLE"});
 });
 
 app.get('/addBook', function(req, res) {
