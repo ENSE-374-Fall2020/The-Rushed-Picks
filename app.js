@@ -61,6 +61,20 @@ const port=5000;
 const registerKey = "123456"; // secure!
 
 //Functions
+function saveToJson (fileName, obj) {
+    fs.writeFileSync(fileName, JSON.stringify(obj), "utf8",  function(err) {
+        if (err) return console.log(err);
+    });
+}
+
+function loadFromJSON (fileName) {
+    let fileContents = fs.readFileSync(fileName, "utf8", function(err) {
+        if (err) return console.log(err);
+    });
+    let fileObject = JSON.parse(fileContents);
+    return fileObject;
+}
+
 var myRecipes=[];
 var myCategories=[];
 function loadRecipes(){
@@ -75,6 +89,8 @@ function loadComments(){
     comments = loadFromJSON (__dirname + "/testComments.json");
 }
 
+myCategories =loadFromJSON (__dirname + "/testCategories.json");
+myRecipes = loadFromJSON (__dirname + "/testRecipes.json");
 function saveRecipe(){
 
 }
@@ -84,10 +100,17 @@ function saveComment(){
 }
 //App POST and GET
 app.get("/", function(req, res) {
+    // loadCategories();
+    // loadRecipes();
+    // loadComments();
+
     res.render("index", {
         test: "CommunityCookbookTemplate",
-        categories: myCategories
+        categories: myCategories,
+        recipes: myRecipes
     });
+    console.log(myCategories);
+    console.log(myRecipes);
 });
 
 
@@ -107,12 +130,12 @@ app.get('/search', (req, res) => {
 });
 
 app.get('/openRecipe', (req, res) => {
-    res.render('open', {text: "THIS IS MY VARIABLE"});
+    res.render('openRecipe', {text: "THIS IS MY VARIABLE"});
 });
 
-app.get('/addBook', function(req, res) {
-    res.render("newCookbook"); //res.params.bookId
-});
+// app.get('/addBook', function(req, res) {
+//     res.render("newCookbook"); //res.params.bookId
+// });
 
 
 app.get('/addRecipe', function(req, res) {
@@ -133,9 +156,9 @@ app.post('/addRecipe', function(req, res){
     res.sendStatus(200);
 });
 
-app.post('/addBook', function(req, res){
-    var book = new Book({})
-});
+// app.post('/addBook', function(req, res){
+//     var book = new Book({})
+// });
 app.listen(port, function() {
     console.log("Server started on port " + port);
 });

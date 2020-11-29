@@ -3,26 +3,36 @@
 
     <div class="container-fluid">
     <div class="row">
-        <div class="col-2">
-            <button class="btn inline"><i class="fa fa-bars"></i></button> Categories
+        <div class="col-4">
+            <!-- <button class="btn inline"><i class="fa fa-bars"></i></button>  -->
+           <div>My Cookbook</div><a class="btn" id="addRecipe" href="/addRecipe">Add Recipes</a>
         </div>
-        <div class="col-10">
+        <div class="col-8">
            <div class="col-md-12 wrapper">
             <input class="form-control" name="searchBox" id="searchBox" type="text" placeholder="Search" aria-label="Search"/>
             </div>
         </div>
-
-        
-
     </div>
     <div class="row">
-        <div class="col-md">
+        <div class="col-4">
+            <div>Recipe Categories</div>
             <div class="accordion" id="bookCategories"></div>
-            <%-include('partials/menuCategories',{categories:"Baking"}); -%>
-        </div>
-        <div class="col-md">
-            <%-include('partials/favorites') -%>
+            <div class="card">
+            <% for (let category of categories) { %>
+            <%-include('partials/menuCategories',{categories:category.category}); -%>
+        
+            <!-- include('partials/menuRecipes',{recipeName:"Coconut Rice"}); -->
+            <% } %>
             </div>
+        </div>
+        <div class="col-8 d-flex justify-content-center">
+            <div class="btn-group-vertical" role="group" aria-label="Recent Recipes">
+            <% for (let recipe of recipes) { %>
+                <%-include('partials/favorites', {recipeName: recipe.recipeName}) -%>
+            <% } %>
+        </div>    
+        </div>
+        </div>
             <!-- Insert Search Script -->
     <!-- <script type="text/javascript"
        
