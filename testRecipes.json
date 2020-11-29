@@ -1,6 +1,6 @@
 [
 {
-"recipeName": "Coconut Ricer",
+"recipeName": "Coconut Rice",
 "ingredients": [{
     "quantity": "1",
     "unit": "cup",
@@ -18,6 +18,65 @@
     }
 ],
 "instructions": "1. In a medium sized pot, rinse the jasmine rice several times until the water runs clear. Drain any excess water and add the coconut milk, water.\\n2.On high heat, allow the mixture to boil. Once it starts to boil, turn the heat down to low and cook covered for 20 minutes.//n3.Uncover and continue to cook for 5 minutes. Fluff and serve.",
-"books":["tempBook1"]    
+"category":["Side Dish", "Vegetarian","Main Dishes","Desserts"]
+},
+{
+"recipeName": "Nolan's Sourdough",
+"ingredients": [{
+    "quantity": "1000",
+    "unit": "grams",
+    "description": "Flour"
+    },
+    {
+    "quantity": "800",
+    "unit": "grams",
+    "description": "Water"
+    },
+    {
+    "quantity": "200",
+    "unit": "grams",
+    "description": "Sourdough Starter"
+    },
+    {
+    "quantity": "20",
+    "unit": "grams",
+    "description": "Salt"
+    }
+],
+"instructions": "1. Mix Flour and Water together, wait 30 minutes//n2.Fold in sourdough starter//n3.Let rise overnight//n4.Form into loaves, let rise 2 hours//n5.Bake at 450 for 50 minutes.",
+"category":["Baking"]
+},
+{
+"recipeName": "Temp Recipe 3",
+"ingredients": [{
+    "quantity": "1",
+    "unit": "cup",
+    "description": "water"
+    }
+],
+"instructions": "1. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Justo eget magna fermentum iaculis eu. Lacus viverra vitae congue eu consequat ac felis donec. Dolor purus non enim praesent. Sed lectus vestibulum mattis ullamcorper velit sed. Vulputate mi sit amet mauris commodo quis imperdiet. Orci a scelerisque purus semper eget duis at. Sit amet consectetur adipiscing elit. Molestie nunc non blandit massa. Purus viverra accumsan in nisl nisi scelerisque eu ultrices. Nisi quis eleifend quam adipiscing vitae proin. Non nisi est sit amet. Aliquam id diam maecenas ultricies mi eget mauris pharetra. Diam vel quam elementum pulvinar etiam non.",
+"category":["Drinks"]
+},
+{
+"recipeName": "Temp Recipe 4",
+"ingredients": [{
+    "quantity": "1",
+    "unit": "cup",
+    "description": "water"
+    }
+],
+"instructions": "1. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Justo eget magna fermentum iaculis eu. Lacus viverra vitae congue eu consequat ac felis donec. Dolor purus non enim praesent. Sed lectus vestibulum mattis ullamcorper velit sed. Vulputate mi sit amet mauris commodo quis imperdiet. Orci a scelerisque purus semper eget duis at. Sit amet consectetur adipiscing elit. Molestie nunc non blandit massa. Purus viverra accumsan in nisl nisi scelerisque eu ultrices. Nisi quis eleifend quam adipiscing vitae proin. Non nisi est sit amet. Aliquam id diam maecenas ultricies mi eget mauris pharetra. Diam vel quam elementum pulvinar etiam non.",
+"category":["Appetizers", "Vegetarian","Main Dishes"]
+},
+{
+"recipeName": "Temp Recipe 5",
+"ingredients": [{
+    "quantity": "1",
+    "unit": "cup",
+    "description": "water"
+    }
+],
+"instructions": "1. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Justo eget magna fermentum iaculis eu. Lacus viverra vitae congue eu consequat ac felis donec. Dolor purus non enim praesent. Sed lectus vestibulum mattis ullamcorper velit sed. Vulputate mi sit amet mauris commodo quis imperdiet. Orci a scelerisque purus semper eget duis at. Sit amet consectetur adipiscing elit. Molestie nunc non blandit massa. Purus viverra accumsan in nisl nisi scelerisque eu ultrices. Nisi quis eleifend quam adipiscing vitae proin. Non nisi est sit amet. Aliquam id diam maecenas ultricies mi eget mauris pharetra. Diam vel quam elementum pulvinar etiam non.",
+"category":["Desserts","Appetizers", "Vegetarian"]
 }
 ]

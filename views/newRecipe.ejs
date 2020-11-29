@@ -4,31 +4,75 @@
     <div class="card">
         <h1>Add a New Recipe </h1>
     </div>
-    <form>
+    <form method="POST" id="addNewRecipe">
     <div class="form-group">
     <label for="recipeTitle"><h4>Recipe Name</h4></label>
-    <input type="text" class="form-control" id="recipeTitle" placeholder="e.g. Pancakes, Peanutbutter cookies"/>
+    <input type="text" class="form-control" name="recipeTitle" placeholder="e.g. Pancakes, Peanutbutter cookies"/>
     </div>
-
-    <!-- <%-include ('partials/newIngredient'); -%> -->
-
-    <div class="input-group row">
-        <input type="text" class="" placeholder="1"/><input type="text" class="" placeholder="unit"/>
-        <input type="text" class="" placeholder="ingredient"/>
-        <button class="btn" id="removeIngredient">x</button>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="selectCategory">Select Recipe Category</label>
+        </div>
+        <select class="custom-select" id="selectCategory">
+         
+        </select>
+      </div>
+    <div class="row" id="recipeTable">
+        <div class="col-md">Quantity</div>
+        <div class="col-md">Unit</div>
+        <div class="col-md">Ingredient</div>
     </div>
     <div class="row" id="newIngredient"></div>
-    <div class="row"><button class="btn" id="addIngredient"> + </button></div>
+    <div class="row"><button type="button" class="btn" id="addIngredient"> + </button></div>
 
     <div class="form-group">
             <label for="recipeInstructions"><h2>Instructions</h2></label>
-            <textarea class="form-control" id="recipeInstructions">Type instructions here...</textarea>
+            <textarea name="instructions" class="form-control" id="recipeInstructions" placeholder="Type Instructions Here..."></textarea>
     </div>
     
     <div class="form-group">
-        <button class="btn"> Save </button>
-        <button class="btn"> Cancel </button>
+        <button class="btn" type="submit" id="submitNewRecipe"> Save </button>
+        <a class="btn" href="/"> Cancel </a>
     </div>
     </form>
-    <!-- <script type="text/javascript" src="helper.js"></script> -->
+
+
+    <script type="text/javascript">
+    $(document).on('click',"#addIngredient", function () {
+    var html = '';
+    html += '<div class="input-group row">';
+    html += '<div class="col-md"><input name="ingredient[][quantity]" type="text" class="" placeholder="quantity"/></div>';
+    html += '<div class="col-md"><input name="ingredient[][unit]" type="text" class="" placeholder="unit"/></div>';
+    html += '<div class="col-md"><input name="ingredient[][description]" type="text" class="" placeholder="ingredient"/></div>';
+    html += '<button type="button" class="btn" id="removeIngredient">x</button>';
+    html += '</div>';
+    
+    $('#newIngredient').append(html);
+    });
+
+    //remove row
+    $(document).on('click', '#removeIngredient', function () {
+        $(this).closest('.input-group').remove();
+    });
+
+    $(document).ready(function(){
+        $("#addIngredient").trigger("click");
+        $('#addNewRecipe').on("submit",function(event){
+        var result = $('#addNewRecipe').serializeJSON();
+        $.ajax({
+            type: "POST",
+            url: "/addRecipe",
+            data: result,
+            success: function(){
+                console.log("added object to database");
+                window.location.href ="/";            
+            }
+        })
+        console.log(result);
+        event.preventDefault();
+        })
+})
+    
+    
+    </script>
     <%-include('partials/footer'); -%>

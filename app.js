@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static(path.join(__dirname,"public")));
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({
-    extended: true
+    extended: false
 }));
 
 // javascript use statements
@@ -60,19 +60,45 @@ const port=5000;
 
 const registerKey = "123456"; // secure!
 
+//Functions
+var myRecipes=[];
+var myCategories=[];
+function loadRecipes(){
+    myRecipes = loadFromJSON (__dirname + "/testRecipes.json");
+}
+
+function loadCategories(){
+    myCategories = loadFromJSON (__dirname + "/testCategories.json");
+}
+
+function loadComments(){
+    comments = loadFromJSON (__dirname + "/testComments.json");
+}
+
+function saveRecipe(){
+
+}
+
+function saveComment(){
+
+}
+//App POST and GET
 app.get("/", function(req, res) {
-    res.render("index", { test: "CommunityCookbookTemplate" });
+    res.render("index", {
+        test: "CommunityCookbookTemplate",
+        categories: myCategories
+    });
 });
 
 
-app.get('/edit/:bookId/', function(req, res) {
+app.get('/edit/:recipeId/', function(req, res) {
 
-    const myCookbook = {
-        bookID: 123,
-        name: "TempBook",
+    const myRecipe = {
+        recipeID: 123,
+        name: "Coconut Rice",
         categories: ['a', 'b', 'c']
     }; //database.getBookByID(req.params.bookId)
-    res.render("editCookbook", myCookbook) //res.params.bookId
+    res.render("editRecipe", myRecipe) //res.params.bookId
 })
 
 
@@ -81,7 +107,7 @@ app.get('/search', (req, res) => {
 });
 
 app.get('/openRecipe', (req, res) => {
-    res.render('open', {text: "this is ejs"});
+    res.render('open', {text: "THIS IS MY VARIABLE"});
 });
 
 app.get('/addBook', function(req, res) {
@@ -90,15 +116,22 @@ app.get('/addBook', function(req, res) {
 
 
 app.get('/addRecipe', function(req, res) {
-    res.render("newRecipe") //res.params.bookId
+    res.render("newRecipe", {categories:myCategories}) //res.params.bookId
 })
 
-app.post('/addRecipe'), function(req, res){
-    var recipe = new Recipe ({
-        // recipeName = req.body.recipeName,
-        // ingredients = req.body.ingredients
-    })
-};
+app.post('/addRecipe', function(req, res){
+    console.log(req.body);
+
+    
+    // var recipe = new Recipe ({
+    //     recipeName = req.body.recipeName,
+    //     //ingredients = [{},{},{}],
+    //     instructions =req.body.instructions    //req.body.ingredients
+    // })
+
+    //console.log(recipe);
+    res.sendStatus(200);
+});
 
 app.post('/addBook', function(req, res){
     var book = new Book({})
