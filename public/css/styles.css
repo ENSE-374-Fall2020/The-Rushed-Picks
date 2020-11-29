@@ -9,12 +9,13 @@
     background-color: rgb(65, 96, 231);
 }
 
-#community-cookbook-title {
+.cookbook-title {
     font-variant: small-caps;
     font-family: serif;
     padding-top: 50px;
     text-align: left;
     color: white;
+    font-size: 50px;
 }
 
 .wrapper {
