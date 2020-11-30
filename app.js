@@ -9,6 +9,7 @@ const path = require("path");
 
 //Setting up jQuery for node.js
 var jsdom = require("jsdom");
+const { isBuffer } = require("util");
 const { JSDOM } = jsdom;
 const { window } = new JSDOM();
 const { document } = (new JSDOM('')).window;
@@ -31,30 +32,31 @@ mongoose.connect("mongodb://localhost:27017/cookbookDB",
                 {useNewUrlParser: true, 
                  useUnifiedTopology: true});
 
-const bookSchema = new mongoose.Schema ({
-    bookName: String,
-    categories: {
-        categoryName: String
-    },
-});
+// const bookSchema = new mongoose.Schema ({
+//     bookName: String,
+//     categories: {
+//         categoryName: String
+//     },
+// });
 
-const Book = mongoose.model("Book", bookSchema);
+// const Book = mongoose.model("", bookSchema);
 
 const recipeSchema = new mongoose.Schema ({
     recipeName: String,
+    recipeCategory: String,
     ingredients: {
         quantity: Number,
         unit: String,
         description: String
     },
     instructions: String,
-    books:{type: [bookSchema],
-        default: ()=>({}),
-    }
-      
+    comments: {
+        note: String,
+        date: Date
+    }      
 });
 
-const Recipe = mongoose.model("Recipe", recipeSchema);
+const Recipe = mongoose.model("cookbookDB", recipeSchema);
 
 const port=5000;
 
@@ -100,17 +102,14 @@ function saveComment(){
 }
 //App POST and GET
 app.get("/", function(req, res) {
-    // loadCategories();
-    // loadRecipes();
-    // loadComments();
 
     res.render("index", {
         test: "CommunityCookbookTemplate",
         categories: myCategories,
         recipes: myRecipes
     });
-    console.log(myCategories);
-    console.log(myRecipes);
+    // console.log(myCategories);
+    // console.log(myRecipes);
 });
 
 
@@ -126,7 +125,10 @@ app.get('/edit/:recipeId/', function(req, res) {
 
 
 app.get('/search', (req, res) => {
-    res.render('search', {text: "this is ejs"});
+    res.render('search', {
+        text: "this is ejs",
+        myRecipes: myRecipes
+    });
 });
 
 app.get('/openRecipe', (req, res) => {
@@ -146,14 +148,25 @@ app.post('/addRecipe', function(req, res){
     console.log(req.body);
 
     
-    // var recipe = new Recipe ({
-    //     recipeName = req.body.recipeName,
-    //     //ingredients = [{},{},{}],
-    //     instructions =req.body.instructions    //req.body.ingredients
-    // })
-
-    //console.log(recipe);
-    res.sendStatus(200);
+    var recipe = new Recipe ({
+        recipeName: req.body.recipeTitle,
+        recipeCategory: req.body.category,
+        ingredients: req.body.ingredient,
+        instructions: req.body.instructions    //req.body.ingredients
+    })
+    
+    recipe.save(function(err){
+        if(err){
+            console.log(err);
+            res.sendStatus(400);
+        }
+        else{
+            console.log("New Recipe Added");
+            res.sendStatus(200);
+        }
+    })
+    
+     
 });
 
 // app.post('/addBook', function(req, res){
