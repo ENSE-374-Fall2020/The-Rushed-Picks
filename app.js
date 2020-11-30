@@ -16,11 +16,12 @@ const { document } = (new JSDOM('')).window;
 global.document = document;
 
 var $ = jQuery = require('jquery')(window);
-
+const dbURL = "mongodb://localhost:27017/cookbookDB";
 // app.use statements
 const app = express();
 app.use(bodyParser.urlencoded({extended:true}));
-app.use(express.static(path.join(__dirname,"public")));
+app.use('/required', express.static(path.join(__dirname,"public")));
+//app.use(express.static(path.join(__dirname,"public")));
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({
     extended: false
@@ -79,6 +80,7 @@ function loadFromJSON (fileName) {
 
 var myRecipes=[];
 var myCategories=[];
+var comments=[];
 function loadRecipes(){
     myRecipes = loadFromJSON (__dirname + "/testRecipes.json");
 }
@@ -93,6 +95,7 @@ function loadComments(){
 
 myCategories =loadFromJSON (__dirname + "/testCategories.json");
 myRecipes = loadFromJSON (__dirname + "/testRecipes.json");
+comments = loadFromJSON (__dirname + "/testComments.json");
 function saveRecipe(){
 
 }
@@ -131,9 +134,24 @@ app.get('/search', (req, res) => {
     });
 });
 
-app.get('/openRecipe', (req, res) => {
-    res.render('openRecipe', {text: "THIS IS MY VARIABLE"});
+
+app.get('/openRecipe/:recipeID', function(req,res){
+    var rTitle = req.params.recipeID;
+    res.render('openRecipe',{
+        selected: rTitle,
+        myRecipes: myRecipes,
+        comments: comments
+    });
 });
+// app.get('/openRecipe/:recipeId', (req, res) => {
+//     console.log(req.params);
+//     const myRecipe = {
+//         recipeID: 123,
+//         name: "Coconut Rice",
+//         categories: ['a', 'b', 'c']
+//     };
+//     res.render('openRecipe', myRecipe);
+// });
 
 // app.get('/addBook', function(req, res) {
 //     res.render("newCookbook"); //res.params.bookId

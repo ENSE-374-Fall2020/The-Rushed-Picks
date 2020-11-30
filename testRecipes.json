@@ -106,5 +106,33 @@
         }],
         "instructions": "1. In a large pot, bring the milk to a boil. 2. Add the pasta and stir constantly until the pasta is cooked, about 10 minutes. 3. Turn off the heat then add the cheddar.Stir until the cheese is melted and the pasta is evenly coated 4. Enjoy ",
         "category": ["Appetizers", "Vegetarian", "Main Dishes"]
+    "quantity": "20",
+    "unit": "grams",
+    "description": "Salt"
     }
-]
+],
+"instructions": "1. Mix Flour and Water together, wait 30 minutes//n2.Fold in sourdough starter//n3.Let rise overnight//n4.Form into loaves, let rise 2 hours//n5.Bake at 450 for 50 minutes.",
+"category":["Baking"]
+},
+{
+"recipeName": "French Toast",
+"ingredients": [{
+    "quantity": "1",
+    "unit": "cup",
+    "description": "water"
+    }
+],
+"instructions": "1. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Justo eget magna fermentum iaculis eu. Lacus viverra vitae congue eu consequat ac felis donec. Dolor purus non enim praesent. Sed lectus vestibulum mattis ullamcorper velit sed. Vulputate mi sit amet mauris commodo quis imperdiet. Orci a scelerisque purus semper eget duis at. Sit amet consectetur adipiscing elit. Molestie nunc non blandit massa. Purus viverra accumsan in nisl nisi scelerisque eu ultrices. Nisi quis eleifend quam adipiscing vitae proin. Non nisi est sit amet. Aliquam id diam maecenas ultricies mi eget mauris pharetra. Diam vel quam elementum pulvinar etiam non.",
+"category":["Drinks"]
+},
+{
+"recipeName": "Pancakes",
+"ingredients": [{
+    "quantity": "1",
+    "unit": "cup",
+    "description": "water"
+    }
+],
+"instructions": "1. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Justo eget magna fermentum iaculis eu. Lacus viverra vitae congue eu consequat ac felis donec. Dolor purus non enim praesent. Sed lectus vestibulum mattis ullamcorper velit sed. Vulputate mi sit amet mauris commodo quis imperdiet. Orci a scelerisque purus semper eget duis at. Sit amet consectetur adipiscing elit. Molestie nunc non blandit massa. Purus viverra accumsan in nisl nisi scelerisque eu ultrices. Nisi quis eleifend quam adipiscing vitae proin. Non nisi est sit amet. Aliquam id diam maecenas ultricies mi eget mauris pharetra. Diam vel quam elementum pulvinar etiam non.",
+"category":["Appetizers", "Vegetarian","Main Dishes"]
+}

@@ -1,0 +1,29 @@
+
+<div class="row">Recipe: <%=recipe.recipeName%></div>
+<div class="row">
+    <div class="col-4">Ingredients:
+        
+        <% var ingredient = recipe.ingredients %>
+        <% for (var i=0; i<=ingredient.length-1; i++){%>
+            <div class="row">
+            <%=recipe.ingredients[i].quantity%>
+            <%=recipe.ingredients[i].unit%>
+            <%=recipe.ingredients[i].description%>
+            </div>
+        <%}%>
+        
+    </div>
+    <div class="col-8">
+        Instructions:<%=JSON.stringify(recipe.instructions)%>
+        <div class="row">
+            Comments:
+        </div>
+        <% for (let comment of comments){%>
+            <div class="row">                    
+                <%=comment.comment%>
+            </div>
+        <%}%>
+        
+        
+    </div>
+</div>
