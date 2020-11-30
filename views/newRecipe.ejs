@@ -15,10 +15,13 @@
     <div class="input-group mb-3">
         <div class="input-group-prepend">
           <label class="input-group-text" for="selectCategory">Select Recipe Category</label>
+          <select name="category" class="custom-select" id="inputGroupSelect01">
+            <option selected>Choose...</option>
+            <% for (let category of categories) { %>
+            <%-include('partials/newRecipeCategory', {category:category.category}) -%>
+            <%} %>
+          </select>
         </div>
-        <select class="custom-select" id="selectCategory">
-         
-        </select>
       </div>
     <div class="row" id="recipeTable">
         <div class="col-md">Quantity</div>
