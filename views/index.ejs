@@ -47,6 +47,7 @@
             <div class="btn-group-vertical" role="group" aria-label="Recent Recipes">
             <% for (let recipe of recipes) { %>
                 <%-include('partials/recentRecipes', {recipeName: recipe.recipeName}) -%>
+                <div class="text-center"><img src="<%=recipe.images -%>" class="database-img rounded" /></div>
             <% } %>
         </div>    
         </div>
