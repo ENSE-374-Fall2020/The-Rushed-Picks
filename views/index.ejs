@@ -28,7 +28,7 @@
         <div class="col-8 d-flex justify-content-center">
             <div class="btn-group-vertical" role="group" aria-label="Recent Recipes">
             <% for (let recipe of recipes) { %>
-                <%-include('partials/favorites', {recipeName: recipe.recipeName}) -%>
+                <%-include('partials/recentRecipes', {recipeName: recipe.recipeName}) -%>
             <% } %>
         </div>    
         </div>
