@@ -2,61 +2,63 @@
 
 
     <div class="container-fluid">
-    <div class="row">
-        <div class="col-4">
-            <!-- <button class="btn inline"><i class="fa fa-bars"></i></button>  -->
-           <div>My Cookbook</div><a class="btn" id="addRecipe" href="/addRecipe">Add Recipes</a>
-        </div>
-        <div class="col-8">
-           <div class="col-md-12 wrapper">
-            <input class="form-control" name="searchBox" id="searchBox" type="text" placeholder="Search" aria-label="Search"/>
+        <div class="row">
+            <div class="col-4">
+                <!-- <button class="btn inline"><i class="fa fa-bars"></i></button>  -->
+                <div class="font-weight-bold font-italic">My Cookbook</div>
+                <a class="btn btn-primary btn-lg" id="addRecipe" href="/addRecipe">Add Recipes</a>
+            </div>
+            <div class="col-8">
+                <div class="col-md-12 wrapper">
+                    <input class="form-control border-primary" name="searchBox" id="searchBox" type="text" placeholder="Search" aria-label="Search" />
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-4">
-            <div>Recipe Categories</div>
-            <div class="accordion" id="bookCategories"></div>
-            <div class="card">
-            <% for (let category of categories) { %>
-            <%-include('partials/menuCategories',{categories:category.category}); -%>
-        
-            <!-- include('partials/menuRecipes',{recipeName:"Coconut Rice"}); -->
-            <% } %>
+        <br>
+        <div class="row">
+            <div class="col-4">
+                <div class="font-weight-bold font-italic">Recipe Categories</div>
+                <div class=" accordion " id="bookCategories "></div>
+                <div class="card w-75">
+                    <% for (let category of categories) { %>
+                        <%-include('partials/menuCategories',{categories:category.category}); -%>
+
+                            <!-- include('partials/menuRecipes',{recipeName:"Coconut Rice "}); -->
+                            <% } %>
+                </div>
+            </div>
+            <div class="col-8 d-flex justify-content-center">
+                <div class="btn-group-vertical" role="group " aria-label="Recent Recipes ">
+                    <% for (let recipe of recipes) { %>
+                        <%-include('partials/favorites', {recipeName: recipe.recipeName}) -%>
+                            <div class="text-center"><img src="<%- recipe.images -%>" class="database-img rounded" /></div>
+                            <% } %>
+                </div>
             </div>
         </div>
-        <div class="col-8 d-flex justify-content-center">
-            <div class="btn-group-vertical" role="group" aria-label="Recent Recipes">
-            <% for (let recipe of recipes) { %>
-                <%-include('partials/favorites', {recipeName: recipe.recipeName}) -%>
-            <% } %>
-        </div>    
-        </div>
-        </div>
-            <!-- Insert Search Script -->
-    <!-- <script type="text/javascript"
+        <!-- Insert Search Script -->
+        <!-- <script type=" text/javascript "
        
-       $(document).on("input", function(){
+       $(document).on("input ", function(){
             //do something
-            var searchResult = $("#searchBox");
+            var searchResult = $("#searchBox ");
             var htmlForResults =''; 
-            htmlForResults += "%-include('searchResults') -%";
+            htmlForResults += "%-include( 'searchResults') -% ";
 
             $.ajax({
-                type: "POST",
-                url: "/",
+                type: "POST ",
+                url: "/ ",
                 data: searchResults,
                 success: function(){
-                    console.log("Received Search Input");
+                    console.log("Received Search Input ");
                 }
             })
         });
         /script> -->
 
-        </div>
     </div>
-    
-</div>
-    
-    <%-include('partials/footer'); -%>
+    </div>
 
+    </div>
+
+    <%-include('partials/footer'); -%>

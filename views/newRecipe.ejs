@@ -1,87 +1,89 @@
 <%-include('partials/header', {title: "Community Cookbook"}); -%>
 
-    
-    <div class="card border-primary mb-3">
-        <h1 class="text-primary">
-            <em>Add a New Recipe</em>
-        </h1>
-    </div>
-    <div class="container">
-    <form method="POST" id="addNewRecipe">
-    <div class="form-group">
-    <label for="recipeTitle"><h4>Recipe Name</h4></label>
-    <input type="text" class="form-control" name="recipeTitle" placeholder="e.g. Pancakes, Peanutbutter cookies"/>
-    </div>
-    <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <label class="input-group-text" for="selectCategory">Select Recipe Category</label>
-          <select name="category" class="custom-select" id="inputGroupSelect01">
-            <option selected>Choose...</option>
-            <% for (let category of categories) { %>
-            <%-include('partials/newRecipeCategory', {category:category.category}) -%>
-            <%} %>
-          </select>
+    <div class="container-fluid">
+        <div class="card border-primary mb-3">
+            <h1 class="text-primary">
+                <em>Add a New Recipe</em>
+            </h1>
         </div>
-      </div>
-    <div class="row" id="recipeTable">
-        <div class="col-md">Quantity</div>
-        <div class="col-md">Unit</div>
-        <div class="col-md">Ingredient</div>
-    </div>
-    <div class="row" id="newIngredient"></div>
-    <div class="row"><button type="button" class="btn" id="addIngredient"> + </button></div>
+        <div class="row">
+            <div class="container">
+                <form method="POST" id="addNewRecipe">
+                    <div class="form-group">
+                        <label for="recipeTitle"><div class= "font-weight-bold">Recipe Name</div></label>
+                        <input type="text" class="form-control border-primary" name="recipeTitle" placeholder="e.g. Pancakes, Peanutbutter cookies" />
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="selectCategory">Select Recipe Category</label>
+                            <select name="category" class="custom-select border-primary" id="inputGroupSelect01">
+                                <option selected>Choose...</option>
+                                 <% for (let category of categories) { %>
+                                 <%-include('partials/newRecipeCategory', {category:category.category}) -%>
+                                 <%} %>
+                             </select>
+                        </div>
+                    </div>
+                    <div class="row" id="recipeTable">
+                        <div class="col-3 offset-md-1 d-flex">Quantity</div>
+                        <div class="col-3 d-flex">Unit</div>
+                        <div class="col-3 d-flex">Ingredient</div>
+                        <div class="col-2 f-flex"></div>
+                    </div>
+                    <div class="row" id="newIngredient"></div>
+                    <div class="row" style="padding-left:15px;"><button type="button" class="btn" id="addIngredient"> + </button></div>
 
-    <div class="form-group">
-            <label for="recipeInstructions"><h2>Instructions</h2></label>
-            <textarea name="instructions" class="form-control" id="recipeInstructions" placeholder="Type Instructions Here..."></textarea>
-    </div>
-    
-    <div class="form-group">
-        <button class="btn" type="submit" id="submitNewRecipe"> Save </button>
-        <a class="btn" href="/"> Cancel </a>
-    </div>
-    </form>
-    
-    </div>
+                    <br>
 
+                    <div class="form-group">
+                        <label for="recipeInstructions"><div class= "font-weight-bold">Instructions</div></label>
+                        <textarea name="instructions" class="form-control border-primary" id="recipeInstructions" placeholder="Type Instructions Here..."></textarea>
+                    </div>
 
+                    <div class="form-group">
+                        <button class="btn bg-primary text-white" type="submit" id="submitNewRecipe"> Save </button>
+                        <a class="btn" href="/"> Cancel </a>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
     <script type="text/javascript">
-    $(document).on('click',"#addIngredient", function () {
-    var html = '';
-    html += '<div class="input-group row">';
-    html += '<div class="col-md"><input name="ingredient[][quantity]" type="text" class="" placeholder="quantity"/></div>';
-    html += '<div class="col-md"><input name="ingredient[][unit]" type="text" class="" placeholder="unit"/></div>';
-    html += '<div class="col-md"><input name="ingredient[][description]" type="text" class="" placeholder="ingredient"/></div>';
-    html += '<button type="button" class="btn" id="removeIngredient">x</button>';
-    html += '</div>';
-    
-    $('#newIngredient').append(html);
-    });
+        $(document).on('click', "#addIngredient", function() {
+            var html = '';
+            html += '<div class="input-group row">';
+            html += '<div class="col-3 offset-md-1"><input name="ingredient[][quantity]" type="text" class="" placeholder="quantity"/></div>';
+            html += '<div class="col-3"><input name="ingredient[][unit]" type="text" class="" placeholder="unit"/></div>';
+            html += '<div class="col-3"><input name="ingredient[][description]" type="text" class="" placeholder="ingredient"/></div>';
+            html += '<div class="col-2"><button type="button" class="btn col-auto mr-auto" id="removeIngredient">x</button></div>';
+            html += '</div>';
 
-    //remove row
-    $(document).on('click', '#removeIngredient', function () {
-        $(this).closest('.input-group').remove();
-    });
+            $('#newIngredient').append(html);
+        });
 
-    $(document).ready(function(){
-        $("#addIngredient").trigger("click");
-        $('#addNewRecipe').on("submit",function(event){
-        var result = $('#addNewRecipe').serializeJSON();
-        $.ajax({
-            type: "POST",
-            url: "/addRecipe",
-            data: result,
-            success: function(){
-                console.log("added object to database");
-                window.location.href ="/";            
-            }
+        //remove row
+        $(document).on('click', '#removeIngredient', function() {
+            $(this).closest('.input-group').remove();
+        });
+
+        $(document).ready(function() {
+            $("#addIngredient").trigger("click");
+            $('#addNewRecipe').on("submit", function(event) {
+                var result = $('#addNewRecipe').serializeJSON();
+                $.ajax({
+                    type: "POST",
+                    url: "/addRecipe",
+                    data: result,
+                    success: function() {
+                        console.log("added object to database");
+                        window.location.href = "/";
+                    }
+                })
+                console.log(result);
+                event.preventDefault();
+            })
         })
-        console.log(result);
-        event.preventDefault();
-        })
-})
-    
-    
     </script>
 
     <%-include('partials/footer'); -%>

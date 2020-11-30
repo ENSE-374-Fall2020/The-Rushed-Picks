@@ -32,3 +32,28 @@
     font-family: sans-serif;
     text-align: center;
 }
+
+.font-weight-bold {
+    font-size: 30px;
+    font-family: Georgia, serif;
+    color: #0275d8;
+}
+
+.btn-primary {
+    margin-top: 10px;
+}
+
+.database-img {
+    width: 50%;
+    height: auto;
+}
+
+.blue {
+    background-color: rgb(71, 71, 252);
+}
+
+#recipeTable {
+    font-size: 17px;
+    font-family: Georgia, serif;
+    color: #0275d8;
+}
