@@ -16,19 +16,34 @@
     <div class="row">
         <div class="col-4">
             <div>Recipe Categories</div>
-            <div class="accordion" id="bookCategories"></div>
+            <div class="accordion" id="categoryMenu"></div>
             <div class="card">
+            <% var numberCategories =0%>
             <% for (let category of categories) { %>
-            <%-include('partials/menuCategories',{categories:category.category}); -%>
-        
-            <!-- include('partials/menuRecipes',{recipeName:"Coconut Rice"}); -->
+                <% numberCategories++ %>
+                <div class="card-header" id="heading<%=numberCategories%>">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse<%=numberCategories%>" aria-expanded="true" aria-controls="collapse<%=numberCategories%>">
+                        <%=category.category%>
+                      </button>
+                    </h2>
+                </div>  
+                <div id="collapse<%=numberCategories%>" class="collapse" aria-labelledby="heading<%=numberCategories%>" data-parent="#categoryMenu">
+                    <div class="card-body">
+                <% for (let recipe of recipes) { %>
+                        <div class="row"><a class="btn" href="/openRecipe/<%=recipe.recipeName%>"><%=recipe.recipeName%></a></div>
+                <% } %>
+                    </div>
+                </div> 
+                
+                
             <% } %>
             </div>
         </div>
         <div class="col-8 d-flex justify-content-center">
             <div class="btn-group-vertical" role="group" aria-label="Recent Recipes">
             <% for (let recipe of recipes) { %>
-                <%-include('partials/favorites', {recipeName: recipe.recipeName}) -%>
+                <%-include('partials/recentRecipes', {recipeName: recipe.recipeName}) -%>
             <% } %>
         </div>    
         </div>

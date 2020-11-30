@@ -1,5 +1,11 @@
+<%-include('partials/header', {title: "Community Cookbook"}); -%>
 
+<div class=""><%=selected%></div>
 
+<% for (let recipe of myRecipes){ %>
+    <% if(recipe.recipeName === selected) {%>
+        <%-include('partials/viewSelectedRecipe', {recipe:recipe,comments:comments})-%>
+        <%}%>
+<%}%>
 
-Hello World!  <%=text%>
-
+<%-include('partials/footer'); -%>

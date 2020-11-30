@@ -47,7 +47,7 @@
 "category":["Baking"]
 },
 {
-"recipeName": "Temp Recipe 3",
+"recipeName": "French Toast",
 "ingredients": [{
     "quantity": "1",
     "unit": "cup",
@@ -58,7 +58,7 @@
 "category":["Drinks"]
 },
 {
-"recipeName": "Temp Recipe 4",
+"recipeName": "Pancakes",
 "ingredients": [{
     "quantity": "1",
     "unit": "cup",
@@ -69,7 +69,7 @@
 "category":["Appetizers", "Vegetarian","Main Dishes"]
 },
 {
-"recipeName": "Temp Recipe 5",
+"recipeName": "Waffles",
 "ingredients": [{
     "quantity": "1",
     "unit": "cup",
