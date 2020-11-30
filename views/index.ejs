@@ -2,22 +2,25 @@
 
 
     <div class="container-fluid">
-    <div class="row">
-        <div class="col-4">
-            <!-- <button class="btn inline"><i class="fa fa-bars"></i></button>  -->
-           <div>My Cookbook</div><a class="btn" id="addRecipe" href="/addRecipe">Add Recipes</a>
-        </div>
-        <div class="col-8">
-           <div class="col-md-12 wrapper">
-            <input class="form-control" name="searchBox" id="searchBox" type="text" placeholder="Search" aria-label="Search"/>
+        <div class="row">
+            <div class="col-4">
+                <!-- <button class="btn inline"><i class="fa fa-bars"></i></button>  -->
+                <div class="font-weight-bold font-italic">My Cookbook</div>
+                <a class="btn btn-primary btn-lg" id="addRecipe" href="/addRecipe">Add Recipes</a>
+            </div>
+
+            <div class="col-8">
+                <div class="col-md-12 wrapper">
+                    <input class="form-control border-primary" name="searchBox" id="searchBox" type="text" placeholder="Search" aria-label="Search" />
+                </div>
             </div>
         </div>
-    </div>
+        <br>
     <div class="row">
         <div class="col-4">
-            <div>Recipe Categories</div>
+            <div class="font-weight-bold font-italic">Recipe Categories</div>
             <div class="accordion" id="categoryMenu"></div>
-            <div class="card">
+            <div class="card w-75">
             <% var numberCategories =0%>
             <% for (let category of categories) { %>
                 <% numberCategories++ %>
@@ -48,30 +51,29 @@
         </div>    
         </div>
         </div>
-            <!-- Insert Search Script -->
-    <!-- <script type="text/javascript"
+        <!-- Insert Search Script -->
+        <!-- <script type=" text/javascript "
        
-       $(document).on("input", function(){
+       $(document).on("input ", function(){
             //do something
-            var searchResult = $("#searchBox");
+            var searchResult = $("#searchBox ");
             var htmlForResults =''; 
-            htmlForResults += "%-include('searchResults') -%";
+            htmlForResults += "%-include( 'searchResults') -% ";
 
             $.ajax({
-                type: "POST",
-                url: "/",
+                type: "POST ",
+                url: "/ ",
                 data: searchResults,
                 success: function(){
-                    console.log("Received Search Input");
+                    console.log("Received Search Input ");
                 }
             })
         });
         /script> -->
 
-        </div>
     </div>
-    
-</div>
-    
-    <%-include('partials/footer'); -%>
+    </div>
 
+    </div>
+
+    <%-include('partials/footer'); -%>

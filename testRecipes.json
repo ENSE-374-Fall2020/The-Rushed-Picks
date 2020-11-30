@@ -1,43 +1,111 @@
-[
-{
-"recipeName": "Coconut Rice",
-"ingredients": [{
-    "quantity": "1",
-    "unit": "cup",
-    "description": "water"
+[{
+        "recipeName": "Coconut Rice",
+        "images": ["images/coconut_rice.jpeg"],
+        "ingredients": [{
+                "quantity": "1",
+                "unit": "cup",
+                "description": "water"
+            },
+            {
+                "quantity": "1",
+                "unit": "can",
+                "description": "coconut milk"
+            },
+            {
+                "quantity": "2",
+                "unit": "cups",
+                "description": "Jasmine Rice"
+            }
+        ],
+        "instructions": "1. In a medium sized pot, rinse the jasmine rice several times until the water runs clear. Drain any excess water and add the coconut milk, water.\\n2.On high heat, allow the mixture to boil. Once it starts to boil, turn the heat down to low and cook covered for 20 minutes.//n3.Uncover and continue to cook for 5 minutes. Fluff and serve.",
+        "category": ["Side Dish", "Vegetarian", "Main Dishes", "Desserts"]
     },
     {
-    "quantity": "1",
-    "unit": "can",
-    "description": "coconut milk"
+        "recipeName": "Nolan's Sourdough",
+        "images": ["images/sourdough.jpg"],
+        "ingredients": [{
+                "quantity": "1000",
+                "unit": "grams",
+                "description": "Flour"
+            },
+            {
+                "quantity": "800",
+                "unit": "grams",
+                "description": "Water"
+            },
+            {
+                "quantity": "200",
+                "unit": "grams",
+                "description": "Sourdough Starter"
+            },
+            {
+                "quantity": "20",
+                "unit": "grams",
+                "description": "Salt"
+            }
+        ],
+        "instructions": "1. Mix Flour and Water together, wait 30 minutes//n2.Fold in sourdough starter//n3.Let rise overnight//n4.Form into loaves, let rise 2 hours//n5.Bake at 450 for 50 minutes.",
+        "category": ["Baking"]
     },
     {
-    "quantity": "2",
-    "unit": "cups",
-    "description": "Jasmine Rice"
-    }
-],
-"instructions": "1. In a medium sized pot, rinse the jasmine rice several times until the water runs clear. Drain any excess water and add the coconut milk, water.\\n2.On high heat, allow the mixture to boil. Once it starts to boil, turn the heat down to low and cook covered for 20 minutes.//n3.Uncover and continue to cook for 5 minutes. Fluff and serve.",
-"category":["Side Dish", "Vegetarian","Main Dishes","Desserts"]
-},
-{
-"recipeName": "Nolan's Sourdough",
-"ingredients": [{
-    "quantity": "1000",
-    "unit": "grams",
-    "description": "Flour"
+        "recipeName": "French Toast",
+        "images": ["images/frenchtoast.jpeg"],
+        "ingredients": [{
+            "quantity": "4",
+            "unit": "large",
+            "description": "eggs"
+        }, {
+            "quantity": "2/3",
+            "unit": "cups",
+            "ingredient": "milk"
+        }, {
+            "quantity": "8",
+            "unit": "slices",
+            "ingredient": "bread"
+        }, {
+            "quanity": "2",
+            "unit": "tsp",
+            "ingredient": "cinnamon"
+        }],
+        "instructions": "1. Make the egg mixture. 2. Soak bread in the egg mixture. 3. Fry the french toast. 4. Serve with hot butter and maple syrup",
+        "category": ["Main Dishes", "Side Dish"]
     },
     {
-    "quantity": "800",
-    "unit": "grams",
-    "description": "Water"
-    },
-    {
-    "quantity": "200",
-    "unit": "grams",
-    "description": "Sourdough Starter"
-    },
-    {
+        "recipeName": "Jalapeno Poppers",
+        "images": ["images/jalapeno-poppers.jpg"],
+        "ingredients": [{
+            "quantity": "4",
+            "unit": "whole",
+            "description": "jalepenos"
+        }, {
+            "quantity": "8",
+            "unit": "slices",
+            "ingredient": "bacon"
+        }, {
+            "quantity": "8",
+            "unit": "oz",
+            "ingredient": "cream cheese"
+        }],
+        "instructions": "1. Preheat oven to 400°F (200˚C). 2.Slice the jalapeños in half, 3. then remove the seeds by scraping out the insides. 4. Spread the cream cheese evenly among the jalapeño shells. 5. Wrap each jalapeño in bacon. 6. Place the bacon - wrapped jalapeños on a baking sheet lined with parchment paper. 7.Bake for 20 minutes, until bacon is browned and peppers are tender. 8. Enjoy!",
+        "category": ["Appetizers", "Main Dishes"]
+    }, {
+        "recipeName": "Mac and Cheese",
+        "images": ["images/mac-n-cheese.jpg"],
+        "ingredients": [{
+            "quantity": "5",
+            "unit": "cups",
+            "description": "milk"
+        }, {
+            "quantity": "1",
+            "unit": "lb",
+            "ingredient": "elbow macaroni"
+        }, {
+            "quantity": "2",
+            "unit": "cups",
+            "ingredient": "shredded cheese"
+        }],
+        "instructions": "1. In a large pot, bring the milk to a boil. 2. Add the pasta and stir constantly until the pasta is cooked, about 10 minutes. 3. Turn off the heat then add the cheddar.Stir until the cheese is melted and the pasta is evenly coated 4. Enjoy ",
+        "category": ["Appetizers", "Vegetarian", "Main Dishes"]
     "quantity": "20",
     "unit": "grams",
     "description": "Salt"
@@ -67,16 +135,4 @@
 ],
 "instructions": "1. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Justo eget magna fermentum iaculis eu. Lacus viverra vitae congue eu consequat ac felis donec. Dolor purus non enim praesent. Sed lectus vestibulum mattis ullamcorper velit sed. Vulputate mi sit amet mauris commodo quis imperdiet. Orci a scelerisque purus semper eget duis at. Sit amet consectetur adipiscing elit. Molestie nunc non blandit massa. Purus viverra accumsan in nisl nisi scelerisque eu ultrices. Nisi quis eleifend quam adipiscing vitae proin. Non nisi est sit amet. Aliquam id diam maecenas ultricies mi eget mauris pharetra. Diam vel quam elementum pulvinar etiam non.",
 "category":["Appetizers", "Vegetarian","Main Dishes"]
-},
-{
-"recipeName": "Waffles",
-"ingredients": [{
-    "quantity": "1",
-    "unit": "cup",
-    "description": "water"
-    }
-],
-"instructions": "1. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Justo eget magna fermentum iaculis eu. Lacus viverra vitae congue eu consequat ac felis donec. Dolor purus non enim praesent. Sed lectus vestibulum mattis ullamcorper velit sed. Vulputate mi sit amet mauris commodo quis imperdiet. Orci a scelerisque purus semper eget duis at. Sit amet consectetur adipiscing elit. Molestie nunc non blandit massa. Purus viverra accumsan in nisl nisi scelerisque eu ultrices. Nisi quis eleifend quam adipiscing vitae proin. Non nisi est sit amet. Aliquam id diam maecenas ultricies mi eget mauris pharetra. Diam vel quam elementum pulvinar etiam non.",
-"category":["Desserts","Appetizers", "Vegetarian"]
 }
-]
