@@ -13,5 +13,17 @@
         <%}%>
         
     </div>
-    <div class="col-8">Instructions:<%=JSON.stringify(recipe.instructions)%></div>
+    <div class="col-8">
+        Instructions:<%=JSON.stringify(recipe.instructions)%>
+        <div class="row">
+            Comments:
+        </div>
+        <% for (let comment of comments){%>
+            <div class="row">                    
+                <%=comment.comment%>
+            </div>
+        <%}%>
+        
+        
+    </div>
 </div>

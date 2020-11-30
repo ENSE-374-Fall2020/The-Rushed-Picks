@@ -80,6 +80,7 @@ function loadFromJSON (fileName) {
 
 var myRecipes=[];
 var myCategories=[];
+var comments=[];
 function loadRecipes(){
     myRecipes = loadFromJSON (__dirname + "/testRecipes.json");
 }
@@ -94,6 +95,7 @@ function loadComments(){
 
 myCategories =loadFromJSON (__dirname + "/testCategories.json");
 myRecipes = loadFromJSON (__dirname + "/testRecipes.json");
+comments = loadFromJSON (__dirname + "/testComments.json");
 function saveRecipe(){
 
 }
@@ -137,7 +139,8 @@ app.get('/openRecipe/:recipeID', function(req,res){
     var rTitle = req.params.recipeID;
     res.render('openRecipe',{
         selected: rTitle,
-        myRecipes: myRecipes
+        myRecipes: myRecipes,
+        comments: comments
     });
 });
 // app.get('/openRecipe/:recipeId', (req, res) => {
