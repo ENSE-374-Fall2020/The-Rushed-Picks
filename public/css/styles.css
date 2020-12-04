@@ -55,5 +55,16 @@
 #recipeTable {
     font-size: 17px;
     font-family: Georgia, serif;
+    
+}
+
+.mul-select{
+    width: 100%;
+}
+
+.recipeTextHeader{
+    font-size: 20px;
+    font-family: Georgia, serif;
     color: #0275d8;
+    padding: 5px;
 }

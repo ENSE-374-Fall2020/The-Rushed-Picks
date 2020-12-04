@@ -50,14 +50,24 @@ const recipeSchema = new mongoose.Schema ({
         unit: String,
         description: String
     },
-    instructions: String,
-    comments: {
-        note: String,
-        date: Date
-    }      
+    instructions: String,      
 });
 
-const Recipe = mongoose.model("cookbookDB", recipeSchema);
+const commentsSchema = new mongoose.Schema ({
+    comments: {
+        comment: String,
+        recipeId: String,
+        posted_on: {type: Date, default:Date.now}
+    }
+});
+
+const categorySchema = new mongoose.Schema({
+    categoryName: String
+})
+
+const Recipe = mongoose.model("Recipe", recipeSchema);
+const Category = mongoose.model("Category", categorySchema);
+const Comments = mongoose.model("Comments", commentsSchema);
 
 const port=5000;
 
@@ -82,11 +92,18 @@ var myRecipes=[];
 var myCategories=[];
 var comments=[];
 function loadRecipes(){
-    myRecipes = loadFromJSON (__dirname + "/testRecipes.json");
+    var query = Recipe.find();
+    console.log(query);
+    // myRecipes = loadFromJSON (__dirname + "/testRecipes.json");
 }
 
 function loadCategories(){
-    myCategories = loadFromJSON (__dirname + "/testCategories.json");
+    var query = Category.find({}, function(err, category){
+        console.log(category);
+    });
+    // console.log(query);
+    
+    // myCategories = loadFromJSON (__dirname + "/testCategories.json");
 }
 
 function loadComments(){
@@ -96,6 +113,7 @@ function loadComments(){
 myCategories =loadFromJSON (__dirname + "/testCategories.json");
 myRecipes = loadFromJSON (__dirname + "/testRecipes.json");
 comments = loadFromJSON (__dirname + "/testComments.json");
+
 function saveRecipe(){
 
 }
@@ -105,7 +123,7 @@ function saveComment(){
 }
 //App POST and GET
 app.get("/", function(req, res) {
-
+    loadCategories();
     res.render("index", {
         test: "CommunityCookbookTemplate",
         categories: myCategories,
@@ -127,19 +145,14 @@ app.get('/edit/:recipeId/', function(req, res) {
 })
 
 
-app.get('/search', (req, res) => {
-    res.render('search', {
-        text: "this is ejs",
-        myRecipes: myRecipes
-    });
-});
-
-
 app.get('/openRecipe/:recipeID', function(req,res){
     var rTitle = req.params.recipeID;
+
+    const selectedRecipe = myRecipes.find(recipe=> recipe.recipeName == req.params.recipeID);
+    console.log(selectedRecipe);
+    
     res.render('openRecipe',{
-        selected: rTitle,
-        myRecipes: myRecipes,
+        selectedRecipe: selectedRecipe,
         comments: comments
     });
 });
@@ -159,7 +172,7 @@ app.get('/openRecipe/:recipeID', function(req,res){
 
 
 app.get('/addRecipe', function(req, res) {
-    res.render("newRecipe", {categories:myCategories}) //res.params.bookId
+    res.render("newRecipe", {categories:myCategories}); //res.params.bookId
 })
 
 app.post('/addRecipe', function(req, res){
@@ -171,7 +184,7 @@ app.post('/addRecipe', function(req, res){
         recipeCategory: req.body.category,
         ingredients: req.body.ingredient,
         instructions: req.body.instructions    //req.body.ingredients
-    })
+    });
     
     recipe.save(function(err){
         if(err){
@@ -186,6 +199,29 @@ app.post('/addRecipe', function(req, res){
     
      
 });
+
+app.post('/', function(req, res){
+    console.log(req.body);
+
+    var category = new Category ({
+        categoryName: req.body.category
+    });
+    
+    category.save(function(err){
+        if(err){
+            console.log(err);
+            res.sendStatus(400);
+        }
+        else{
+            console.log("New Category Added");
+            res.redirect('back');
+        }
+    })     
+});
+
+app.post('openRecipe', function(req, res){
+    console.log(req.body);
+})
 
 // app.post('/addBook', function(req, res){
 //     var book = new Book({})

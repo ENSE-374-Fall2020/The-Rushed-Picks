@@ -1,11 +1,42 @@
 <%-include('partials/header', {title: "Community Cookbook"}); -%>
 
-<div class=""><%=selected%></div>
 
-<% for (let recipe of myRecipes){ %>
-    <% if(recipe.recipeName === selected) {%>
-        <%-include('partials/viewSelectedRecipe', {recipe:recipe,comments:comments})-%>
+<div class="row mb-5">
+    <div class="font-weight-bold font-italic mb-">Recipe: <%=selectedRecipe.recipeName%></div>
+</div>
+<div class="row">
+    <div class="col-4"><div class="recipeTextHeader">Ingredients:</div>
+        
+        <% var ingredient = selectedRecipe.ingredients %>
+        <% for (var i=0; i<=ingredient.length-1; i++){%>
+            <div class="row p-1">
+            <%=selectedRecipe.ingredients[i].quantity%>
+            <%=selectedRecipe.ingredients[i].unit%>
+            <%=selectedRecipe.ingredients[i].description%>
+            </div>
         <%}%>
-<%}%>
+        
+    </div>
+    <div class="col-8">
+        <div class="recipeTextHeader">Instructions:</div>
+        <div class="card mb-5">
+            <%=selectedRecipe.instructions%>
+        </div> 
+        <div class="row">
+            <div class="recipeTextHeader">Comments:</div>
+        </div>
+        <% for (let comment of comments){%>
+            <div class="row">
+                <div class="card border border-primary p-2 mb-3">                  
+                    <%=comment.comment%>
+                    <div class="border"><%=comment.date%></div>
+                </div> 
+            </div>
+        <%}%>   
+    </div>
+</div>
+
+
+    
 
 <%-include('partials/footer'); -%>

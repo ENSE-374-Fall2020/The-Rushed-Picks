@@ -6,8 +6,28 @@
             <div class="col-4">
                 <!-- <button class="btn inline"><i class="fa fa-bars"></i></button>  -->
                 <div class="font-weight-bold font-italic">My Cookbook</div>
-                <a class="btn btn-primary btn-lg" id="addRecipe" href="/addRecipe">Add Recipes</a>
-            </div>
+                <a class="btn btn-primary btn-lg" id="addRecipe" href="/addRecipe">Add New Recipes</a>
+                <!-- <a class="btn btn-primary btn-lg" id="addCategory" href="/addCategory">Add New Category</a> -->
+                
+                    <div id="accordion">
+                        <button class="btn btn-primary btn-lg" data-toggle="collapse" data-target="#collapseOne"
+                            aria-expanded="true" aria-controls="collapseOne">
+                            Add New Category
+                        </button>
+                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                            <form class="form-row text-center" method="POST" action="/">
+                                <!-- <label for="newCategory"></label> -->
+                                <input type="text" id="newCategory" name="category" class="form-control"
+                                    placeholder="New Category">
+                                
+                                
+                                <button class="btn btn-lg btn-primary btn-block" type="submit">Save</button>
+                            </form>  
+                        </div> 
+                    </div>
+                
+
+            </div>          
 
             <div class="col-8">
                 <div class="col-md-12 wrapper">
@@ -37,9 +57,7 @@
                         <div class="row"><a class="btn" href="/openRecipe/<%=recipe.recipeName%>"><%=recipe.recipeName%></a></div>
                 <% } %>
                     </div>
-                </div> 
-                
-                
+                </div>                
             <% } %>
             </div>
         </div>
