@@ -19,7 +19,7 @@
                             <select name="categories[]" class="mul-select" id="categorySelector" multiple="true">
                                 <!-- <option selected>Choose...</option> -->
                                  <% for (let category of categories) { %>
-                                 <%-include('partials/newRecipeCategory', {category:category.category}) -%>
+                                 <%-include('partials/newRecipeCategory', {category:category.categoryName}) -%>
                                  <%} %>
                              </select>
                         </div>
@@ -53,9 +53,9 @@
         $(document).on('click', "#addIngredient", function() {
             var html = '';
             html += '<div class="input-group row">';
-            html += '<div class="col-3 offset-md-1"><input name="ingredient[][quantity]" type="text" class="" placeholder="quantity"/></div>';
-            html += '<div class="col-3"><input name="ingredient[][unit]" type="text" class="" placeholder="unit"/></div>';
-            html += '<div class="col-3"><input name="ingredient[][description]" type="text" class="" placeholder="ingredient"/></div>';
+            html += '<div class="col-3 offset-md-1"><input name="ingredients[][quantity]" type="text" class="" placeholder="quantity"/></div>';
+            html += '<div class="col-3"><input name="ingredients[][unit]" type="text" class="" placeholder="unit"/></div>';
+            html += '<div class="col-3"><input name="ingredients[][description]" type="text" class="" placeholder="ingredient"/></div>';
             html += '<div class="col-2"><button type="button" class="btn col-auto mr-auto" id="removeIngredient">x</button></div>';
             html += '</div>';
 

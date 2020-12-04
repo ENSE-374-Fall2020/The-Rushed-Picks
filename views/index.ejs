@@ -1,4 +1,4 @@
-<%-include('partials/header', {title: test}); -%>
+<%-include('partials/header', {title: title}); -%>
 
 
     <div class="container-fluid">
@@ -9,24 +9,22 @@
                 <a class="btn btn-primary btn-lg" id="addRecipe" href="/addRecipe">Add New Recipes</a>
                 <!-- <a class="btn btn-primary btn-lg" id="addCategory" href="/addCategory">Add New Category</a> -->
                 
-                    <div id="accordion">
-                        <button class="btn btn-primary btn-lg" data-toggle="collapse" data-target="#collapseOne"
-                            aria-expanded="true" aria-controls="collapseOne">
-                            Add New Category
-                        </button>
-                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-                            <form class="form-row text-center" method="POST" action="/">
-                                <!-- <label for="newCategory"></label> -->
-                                <input type="text" id="newCategory" name="category" class="form-control"
-                                    placeholder="New Category">
-                                
-                                
-                                <button class="btn btn-lg btn-primary btn-block" type="submit">Save</button>
-                            </form>  
-                        </div> 
-                    </div>
-                
-
+                <div id="accordion">
+                    <button class="btn btn-primary btn-lg" data-toggle="collapse" data-target="#collapseOne"
+                        aria-expanded="true" aria-controls="collapseOne">
+                        Add New Category
+                    </button>
+                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                        <form class="form-row text-center" method="POST" action="/">
+                            <!-- <label for="newCategory"></label> -->
+                            <input type="text" id="newCategory" name="category" class="form-control"
+                                placeholder="New Category">
+                            
+                            
+                            <button class="btn btn-lg btn-primary btn-block" type="submit">Save</button>
+                        </form>  
+                    </div> 
+                </div>
             </div>          
 
             <div class="col-8">
@@ -47,7 +45,7 @@
                 <div class="card-header" id="heading<%=numberCategories%>">
                     <h2 class="mb-0">
                       <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse<%=numberCategories%>" aria-expanded="true" aria-controls="collapse<%=numberCategories%>">
-                        <%=category.category%>
+                        <%=category.categoryName%>
                       </button>
                     </h2>
                 </div>  
@@ -70,6 +68,7 @@
         </div>    
         </div>
         </div>
+
         <!-- Insert Search Script -->
         <!-- <script type=" text/javascript "
        
