@@ -13,13 +13,17 @@
                         <label for="recipeTitle"><div class= "font-weight-bold">Recipe Name</div></label>
                         <input type="text" class="form-control border-primary" name="recipeTitle" placeholder="e.g. Pancakes, Peanutbutter cookies" />
                     </div>
-                    <div class="input-group mb-3">
+                    <div class="form-group">
+                        <label for="imageURL"><div class= "font-weight-bold">Image URL</div></label>
+                        <input type="text" class="form-control border-primary" name="imageURL" placeholder="https://myimageURL.com" />
+                    </div>
+                    <div class="form-group">
                         <div class="input-group-prepend">
-                            <label class="input-group-text" for="selectCategory">Select Recipe Category</label>
-                            <select name="category" class="custom-select border-primary" id="inputGroupSelect01">
-                                <option selected>Choose...</option>
+                            <label class="input-group-text" for="selectCategory">Select Recipe Categories</label>
+                            <select name="categories[]" class="mul-select" id="categorySelector" multiple="true">
+                                <!-- <option selected>Choose...</option> -->
                                  <% for (let category of categories) { %>
-                                 <%-include('partials/newRecipeCategory', {category:category.category}) -%>
+                                 <%-include('partials/newRecipeCategory', {category:category.categoryName}) -%>
                                  <%} %>
                              </select>
                         </div>
@@ -53,9 +57,9 @@
         $(document).on('click', "#addIngredient", function() {
             var html = '';
             html += '<div class="input-group row">';
-            html += '<div class="col-3 offset-md-1"><input name="ingredient[][quantity]" type="text" class="" placeholder="quantity"/></div>';
-            html += '<div class="col-3"><input name="ingredient[][unit]" type="text" class="" placeholder="unit"/></div>';
-            html += '<div class="col-3"><input name="ingredient[][description]" type="text" class="" placeholder="ingredient"/></div>';
+            html += '<div class="col-3 offset-md-1"><input name="ingredients[][quantity]" type="text" class="" placeholder="quantity"/></div>';
+            html += '<div class="col-3"><input name="ingredients[][unit]" type="text" class="" placeholder="unit"/></div>';
+            html += '<div class="col-3"><input name="ingredients[][description]" type="text" class="" placeholder="ingredient"/></div>';
             html += '<div class="col-2"><button type="button" class="btn col-auto mr-auto" id="removeIngredient">x</button></div>';
             html += '</div>';
 
@@ -83,6 +87,11 @@
                 console.log(result);
                 event.preventDefault();
             })
+            $(".mul-select").select2({                      //bootstrap 4 multipleSelect
+                    placeholder: "select category", 
+                    tags: true,
+                    tokenSeparators: ['/',',',';'," "] 
+                });
         })
     </script>
 

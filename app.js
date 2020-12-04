@@ -6,6 +6,7 @@ const fs = require("fs");
 //const { runInNewContext } = require("vm");
 const mongoose = require("mongoose");
 const path = require("path");
+mongoose.Promise=global.Promise;
 
 //Setting up jQuery for node.js
 var jsdom = require("jsdom");
@@ -44,20 +45,29 @@ mongoose.connect("mongodb://localhost:27017/cookbookDB",
 
 const recipeSchema = new mongoose.Schema ({
     recipeName: String,
-    recipeCategory: String,
-    ingredients: {
+    imageURL: String,
+    categories: [String],
+    ingredients:[{
         quantity: Number,
         unit: String,
         description: String
-    },
-    instructions: String,
-    comments: {
-        note: String,
-        date: Date
-    }      
+    }],
+    instructions: String,      
 });
 
-const Recipe = mongoose.model("cookbookDB", recipeSchema);
+const commentSchema = new mongoose.Schema ({
+        comment: String,
+        recipeId: String,
+        posted_on: {type: Date, default:Date.now}
+});
+
+const categorySchema = new mongoose.Schema({
+    categoryName: String
+})
+
+const Recipe = mongoose.model("Recipe", recipeSchema);
+const Category = mongoose.model("Category", categorySchema);
+const Comment = mongoose.model("Comment", commentSchema);
 
 const port=5000;
 
@@ -78,100 +88,77 @@ function loadFromJSON (fileName) {
     return fileObject;
 }
 
-var myRecipes=[];
-var myCategories=[];
-var comments=[];
-function loadRecipes(){
-    myRecipes = loadFromJSON (__dirname + "/testRecipes.json");
-}
+// myRecipes = loadFromJSON (__dirname + "/testRecipes.json");
 
-function loadCategories(){
-    myCategories = loadFromJSON (__dirname + "/testCategories.json");
-}
+ comments = loadFromJSON (__dirname + "/testComments.json");
 
-function loadComments(){
-    comments = loadFromJSON (__dirname + "/testComments.json");
-}
-
-myCategories =loadFromJSON (__dirname + "/testCategories.json");
-myRecipes = loadFromJSON (__dirname + "/testRecipes.json");
-comments = loadFromJSON (__dirname + "/testComments.json");
-function saveRecipe(){
-
-}
-
-function saveComment(){
-
-}
 //App POST and GET
-app.get("/", function(req, res) {
+app.get("/", async (req, res) => {
+
+    const categoryResult = await Category.find({}).exec();
+    const recipeResult = await Recipe.find({}).exec();
 
     res.render("index", {
-        test: "CommunityCookbookTemplate",
-        categories: myCategories,
-        recipes: myRecipes
-    });
-    // console.log(myCategories);
-    // console.log(myRecipes);
+        title: "CommunityCookbook",
+        categories: categoryResult,
+        recipes: recipeResult
+        });
 });
 
+app.get('/getRecipes', function(req,res){
+    Recipe.find({}).exec(function(err, recipes){
+        if(err){
+            res.send("Error in RecipeFind");
+        }else{
+            console.log(recipes);
+            res.send(recipes);
+        }
+    })
+});
 
 app.get('/edit/:recipeId/', function(req, res) {
 
-    const myRecipe = {
-        recipeID: 123,
-        name: "Coconut Rice",
-        categories: ['a', 'b', 'c']
-    }; //database.getBookByID(req.params.bookId)
+    // const myRecipe = {
+    //     recipeID: 123,
+    //     name: "Coconut Rice",
+    //     categories: ['a', 'b', 'c']
+    // }; //database.getBookByID(req.params.bookId)
     res.render("editRecipe", myRecipe) //res.params.bookId
 })
 
 
-app.get('/search', (req, res) => {
-    res.render('search', {
-        text: "this is ejs",
-        myRecipes: myRecipes
-    });
-});
-
-
-app.get('/openRecipe/:recipeID', function(req,res){
-    var rTitle = req.params.recipeID;
+app.get('/openRecipe/:recipeID', async(req,res)=>{
+    const selectedRecipe = await Recipe.find({recipeName: req.params.recipeID}).exec();
+    const recipeComments = await Comment.find({recipeId: req.params.recipeID}).exec();
     res.render('openRecipe',{
-        selected: rTitle,
-        myRecipes: myRecipes,
-        comments: comments
+        title: "CommunityCookbook",
+        selectedRecipe: selectedRecipe,
+        comments: recipeComments
     });
 });
-// app.get('/openRecipe/:recipeId', (req, res) => {
-//     console.log(req.params);
-//     const myRecipe = {
-//         recipeID: 123,
-//         name: "Coconut Rice",
-//         categories: ['a', 'b', 'c']
-//     };
-//     res.render('openRecipe', myRecipe);
-// });
-
-// app.get('/addBook', function(req, res) {
-//     res.render("newCookbook"); //res.params.bookId
-// });
-
 
 app.get('/addRecipe', function(req, res) {
-    res.render("newRecipe", {categories:myCategories}) //res.params.bookId
+    Category.find({}).exec(function(err, categories){
+        if(err){
+            res.send('Error in Category.find');
+        }else{
+          res.render("newRecipe", {
+            test: "CommunityCookbook",
+            categories: categories
+            });
+        }
+        
+    });
 })
 
 app.post('/addRecipe', function(req, res){
-    console.log(req.body);
-
-    
     var recipe = new Recipe ({
         recipeName: req.body.recipeTitle,
-        recipeCategory: req.body.category,
-        ingredients: req.body.ingredient,
+        imageURL: req.body.imageURL,
+        categories: req.body.categories,
+        ingredients: req.body.ingredients,
         instructions: req.body.instructions    //req.body.ingredients
-    })
+    });
     
     recipe.save(function(err){
         if(err){
@@ -187,9 +174,42 @@ app.post('/addRecipe', function(req, res){
      
 });
 
-// app.post('/addBook', function(req, res){
-//     var book = new Book({})
-// });
+app.post('/', function(req, res){
+    var category = new Category ({
+        categoryName: req.body.category
+    });
+    
+    category.save(function(err){
+        if(err){
+            console.log(err);
+            res.sendStatus(400);
+        }
+        else{
+            console.log("New Category Added");
+            res.redirect('back');
+        }
+    })     
+});
+
+app.post('/openRecipe/:recipeID', function(req, res){
+    
+    var comment = new Comment ({
+        comment: req.body.newComment,
+        recipeId: req.params.recipeID
+    });
+    
+    comment.save(function(err){
+        if(err){
+            console.log(err);
+            res.sendStatus(400);
+        }
+        else{
+            console.log("New comment Added");
+            res.redirect('back');
+        }
+    })     
+});
+
 app.listen(port, function() {
     console.log("Server started on port " + port);
 });

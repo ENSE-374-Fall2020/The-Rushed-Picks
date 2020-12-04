@@ -1,4 +1,4 @@
-<%-include('partials/header', {title: test}); -%>
+<%-include('partials/header', {title: title}); -%>
 
 
     <div class="container-fluid">
@@ -6,8 +6,26 @@
             <div class="col-4">
                 <!-- <button class="btn inline"><i class="fa fa-bars"></i></button>  -->
                 <div class="font-weight-bold font-italic">My Cookbook</div>
-                <a class="btn btn-primary btn-lg" id="addRecipe" href="/addRecipe">Add Recipes</a>
-            </div>
+                <a class="btn btn-primary btn-lg" id="addRecipe" href="/addRecipe">Add New Recipes</a>
+                <!-- <a class="btn btn-primary btn-lg" id="addCategory" href="/addCategory">Add New Category</a> -->
+                
+                <div id="accordion">
+                    <button class="btn btn-primary btn-lg" data-toggle="collapse" data-target="#collapseOne"
+                        aria-expanded="true" aria-controls="collapseOne">
+                        Add New Category
+                    </button>
+                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                        <form class="form-row text-center" method="POST" action="/">
+                            <!-- <label for="newCategory"></label> -->
+                            <input type="text" id="newCategory" name="category" class="form-control"
+                                placeholder="New Category">
+                            
+                            
+                            <button class="btn btn-lg btn-primary btn-block" type="submit">Save</button>
+                        </form>  
+                    </div> 
+                </div>
+            </div>          
 
             <div class="col-8">
                 <div class="col-md-12 wrapper">
@@ -27,19 +45,25 @@
                 <div class="card-header" id="heading<%=numberCategories%>">
                     <h2 class="mb-0">
                       <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse<%=numberCategories%>" aria-expanded="true" aria-controls="collapse<%=numberCategories%>">
-                        <%=category.category%>
+                        <%=category.categoryName%>
                       </button>
                     </h2>
                 </div>  
                 <div id="collapse<%=numberCategories%>" class="collapse" aria-labelledby="heading<%=numberCategories%>" data-parent="#categoryMenu">
                     <div class="card-body">
                 <% for (let recipe of recipes) { %>
-                        <div class="row"><a class="btn" href="/openRecipe/<%=recipe.recipeName%>"><%=recipe.recipeName%></a></div>
+
+                    <% for (let matchCategory of recipe.categories){ %>
+                        
+                        <% if (matchCategory == category.categoryName) {%>
+                            <div class="row"><a class="btn" href="/openRecipe/<%=recipe.recipeName%>"><%=recipe.recipeName%></a></div>
+                        <%}%>
+                        
+                    <%}%>
+                        
                 <% } %>
                     </div>
-                </div> 
-                
-                
+                </div>                
             <% } %>
             </div>
         </div>
@@ -47,30 +71,11 @@
             <div class="btn-group-vertical" role="group" aria-label="Recent Recipes">
             <% for (let recipe of recipes) { %>
                 <%-include('partials/recentRecipes', {recipeName: recipe.recipeName}) -%>
-                <div class="text-center"><img src="<%=recipe.images -%>" class="database-img rounded" /></div>
+                <div class="text-center"><img src="<%=recipe.imageURL -%>" class="database-img rounded" /></div>
             <% } %>
         </div>    
         </div>
         </div>
-        <!-- Insert Search Script -->
-        <!-- <script type=" text/javascript "
-       
-       $(document).on("input ", function(){
-            //do something
-            var searchResult = $("#searchBox ");
-            var htmlForResults =''; 
-            htmlForResults += "%-include( 'searchResults') -% ";
-
-            $.ajax({
-                type: "POST ",
-                url: "/ ",
-                data: searchResults,
-                success: function(){
-                    console.log("Received Search Input ");
-                }
-            })
-        });
-        /script> -->
 
     </div>
     </div>
