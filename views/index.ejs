@@ -52,7 +52,15 @@
                 <div id="collapse<%=numberCategories%>" class="collapse" aria-labelledby="heading<%=numberCategories%>" data-parent="#categoryMenu">
                     <div class="card-body">
                 <% for (let recipe of recipes) { %>
-                        <div class="row"><a class="btn" href="/openRecipe/<%=recipe.recipeName%>"><%=recipe.recipeName%></a></div>
+
+                    <% for (let matchCategory of recipe.categories){ %>
+                        
+                        <% if (matchCategory == category.categoryName) {%>
+                            <div class="row"><a class="btn" href="/openRecipe/<%=recipe.recipeName%>"><%=recipe.recipeName%></a></div>
+                        <%}%>
+                        
+                    <%}%>
+                        
                 <% } %>
                     </div>
                 </div>                
@@ -63,31 +71,11 @@
             <div class="btn-group-vertical" role="group" aria-label="Recent Recipes">
             <% for (let recipe of recipes) { %>
                 <%-include('partials/recentRecipes', {recipeName: recipe.recipeName}) -%>
-                <div class="text-center"><img src="<%=recipe.images -%>" class="database-img rounded" /></div>
+                <div class="text-center"><img src="<%=recipe.imageURL -%>" class="database-img rounded" /></div>
             <% } %>
         </div>    
         </div>
         </div>
-
-        <!-- Insert Search Script -->
-        <!-- <script type=" text/javascript "
-       
-       $(document).on("input ", function(){
-            //do something
-            var searchResult = $("#searchBox ");
-            var htmlForResults =''; 
-            htmlForResults += "%-include( 'searchResults') -% ";
-
-            $.ajax({
-                type: "POST ",
-                url: "/ ",
-                data: searchResults,
-                success: function(){
-                    console.log("Received Search Input ");
-                }
-            })
-        });
-        /script> -->
 
     </div>
     </div>

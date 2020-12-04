@@ -2,25 +2,26 @@
 
 
 <div class="row mb-5">
-    <div class="font-weight-bold font-italic mb-">Recipe: <%=selectedRecipe.recipeName%></div>
+    <div class="font-weight-bold font-italic mb-">Recipe: <%=selectedRecipe[0].recipeName%></div>
 </div>
 <div class="row">
     <div class="col-4"><div class="recipeTextHeader">Ingredients:</div>
         
-        <% var ingredient = selectedRecipe.ingredients %>
-        <% for (var i=0; i<=ingredient.length-1; i++){%>
+        <% var ingredient = selectedRecipe[0].ingredients %>
+        <% for (var i=0; i<=2; i++){%>
             <div class="row p-1">
-            <%=selectedRecipe.ingredients[i].quantity%>
-            <%=selectedRecipe.ingredients[i].unit%>
-            <%=selectedRecipe.ingredients[i].description%>
+            <%=selectedRecipe[0].ingredients[i].quantity%>
+            <%=selectedRecipe[0].ingredients[i].unit%>
+            <%=selectedRecipe[0].ingredients[i].description%>
             </div>
-        <%}%>
+          <%}%>
+        
         
     </div>
     <div class="col-8">
         <div class="recipeTextHeader">Instructions:</div>
         <div class="card mb-5">
-            <%=selectedRecipe.instructions%>
+            <%=selectedRecipe[0].instructions%>
         </div> 
         <div class="row">
             <div class="recipeTextHeader">Comments:</div>
@@ -35,7 +36,18 @@
         <%}%>   
     </div>
 </div>
-
+<div class="card">
+    <form method="POST" id="newComment">
+        <div class="form-group">
+            <label for="newCommentField">Add Comments</label>
+            <input type="hidden" name="recipeTitle" value="<%=selectedRecipe[0].recipeName%>">
+            <textarea name="newComment" class="form-control" id="newCommentField" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+            <button class="btn bg-primary text-white" type="submit" id="submitNewRecipe"> Save </button>
+        </div>
+    </form>
+</div>
 
     
 
