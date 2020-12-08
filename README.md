@@ -9,6 +9,7 @@ Created with Node.js and MongoDB
 * [VLOG#1](https://youtu.be/SPS7kH5GjHU)
 * [VLOG#2](https://youtu.be/uZ3pKJFiKTA)
 * [VLOG#3](https://youtu.be/bHMGQiE1Tto)
+* [VLog#4](https://youtu.be/GYG9aWlFbhY)
 
 ## Project Boards
 * [User Stories](https://github.com/orgs/ENSE374-The-Rushed-Picks/projects/2)
