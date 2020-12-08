@@ -15,9 +15,22 @@ Created with Node.js and MongoDB
 * [MVP](https://github.com/orgs/ENSE374-The-Rushed-Picks/projects/3)
 
 ## Getting Started
-* [Download](#)
-* [Install](#)
-* [Setup](#)
+* ### Download
+    git clone https://github.com/ENSE374-The-Rushed-Picks/CommunityCookbook.git
+* ### Install MongoDB Community
+    #### Linux
+      sudo apt-get install -y mongodb-org
+    #### Windows
+      https://www.mongodb.com/try/download/community
+    #### Node Drivers
+      npm install mongodb --save
+* ### Install CommunityCookbook
+    cd communityCookbook
+    npm install
+* ### Setup
+    Node App.js
+* ### Open the Cookbook
+    Open your browser and go to Http://localhost:5000
 
 ## Documentation
 * [Project Documents](https://github.com/ENSE374-The-Rushed-Picks/CommunityCookbook/tree/main/documentation)
